@@ -1,0 +1,49 @@
+package control;
+
+import java.awt.Color;
+import java.awt.Container;
+
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+
+import event.BrowseHandler;
+
+public class ControlPanel extends JPanel{
+	
+	private JTextField filePath;
+	public JButton browse;
+	private ImagePanel1 IP;
+	public ControlPanel(ImagePanel1 IP){
+		setBorder(BorderFactory.createLineBorder(new Color(255,255,0)));
+		setLayout(null);
+		this.IP= IP;
+		filePath = new JTextField("Please Select file",10);
+		filePath.setLocation(10,30);
+		filePath.setSize(300, 30);
+
+		
+		BrowseHandler BH = new BrowseHandler(filePath,IP);
+		add(filePath);
+		ColorControl colorControl = new ColorControl();
+		colorControl.setBounds(10, 70, 300, 180);
+		add(colorControl);
+		
+		ImageControl imageControl =new ImageControl();
+		imageControl.setBounds(800, 20, 300, 100);
+		add(imageControl);
+		
+		CalculateControl calculate=new CalculateControl();
+		calculate.setBounds(800, 140, 300, 100);
+		add(calculate);
+		
+		browse = new JButton("Browse");
+		browse.setLocation(350,30);
+		browse.setSize(80, 30);
+		browse.addMouseListener(BH);
+		add(browse);
+			
+	}
+}
