@@ -16,6 +16,8 @@ public class ImageController implements ChangeListener{
 	
 	@Override
 	public void stateChanged(ChangeEvent ce) {
+		JSlider js=(JSlider) ce.getSource();
+		
 	}
 	
 	public int returnValue(){
