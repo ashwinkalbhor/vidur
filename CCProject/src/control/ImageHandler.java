@@ -5,9 +5,12 @@ import processing.core.PImage;
 
 public class ImageHandler extends PApplet{
 	private String path;
-	private PImage img;
+	PImage img;
 	public ImageHandler(String path){
 		this.path=path;
+		//this.setup();
+		//this.draw();
+		
 	}
 	
 	public void setup(){
@@ -18,8 +21,11 @@ public class ImageHandler extends PApplet{
 	}
 	
 	public void draw(){
+		
+		pushMatrix();
 		rect(0,0,200,200);
 		fill(0);
-		image(img,0,0);
+		image(img,0,0,200,200);
+		popMatrix();
 	}
 }

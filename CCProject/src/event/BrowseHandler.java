@@ -11,12 +11,12 @@ import control.ImagePanel1;
 public class BrowseHandler extends MouseAdapter{
 	private JFileChooser chooser;
 	private JTextField filePath;
-	public ImagePanel1 IP;
-	public ImagePanel1 copyIP;
+	//public ImagePanel1 IP;
+	//public ImagePanel1 copyIP;
 	private String path;
-	public BrowseHandler(JTextField filepath,ImagePanel1 IP){
+	public BrowseHandler(JTextField filepath){
 		filePath = filepath;
-		this.IP=IP;
+		//this.IP=ip;
 		chooser = new JFileChooser();
 		chooser.addChoosableFileFilter(new FilterFile(".jpeg","JPEG ImageFile"));
 		chooser.addChoosableFileFilter(new FilterFile(".jpg","JPG ImageFile"));
@@ -32,9 +32,10 @@ public class BrowseHandler extends MouseAdapter{
 		if(decision == JFileChooser.APPROVE_OPTION){
 			System.out.println("APPROVED"); 
 			path = chooser.getSelectedFile().getAbsolutePath();
-			 filePath.setText(path);
-			copyIP = new ImagePanel1(path);
-			IP=copyIP;
+			filePath.setText(path);
+			//copyIP=new ImagePanel1("data/Images/o157.jpg");
+			//IP.loadImagePanel("data/Images/o157.jpg");
+			//IP.setBounds(0, 0, 200, 200);
 		}
 		if(decision == JFileChooser.ERROR_OPTION){
 			filePath.setText("Error occured");
