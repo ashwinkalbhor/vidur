@@ -12,17 +12,19 @@ import control.ImageControl;
 
 
 import event.BrowseHandler;
+import event.LoadImageEvent;
 
 public class ControlPanel extends JPanel{
 	
 	private JTextField filePath;
 	public JButton browse;
+	private JButton loadImage;
 	//private String s;
 	private ImagePanel1 ip;
 	public ControlPanel(ImagePanel1 ip){
 		setBorder(BorderFactory.createLineBorder(new Color(255,255,0)));
 		setLayout(null);
-		//this.ip=ip;
+		this.ip=ip;
 		filePath = new JTextField("Please Select file",10);
 		filePath.setLocation(10,30);
 		filePath.setSize(300, 30);
@@ -34,7 +36,7 @@ public class ControlPanel extends JPanel{
 		colorControl.setBounds(10, 70, 300, 180);
 		add(colorControl);
 		
-		ImageControl imageControl =new ImageControl();
+		ImageControl imageControl =new ImageControl(ip.getPApplet());
 		imageControl.setBounds(800, 20, 300, 100);
 		add(imageControl);
 		
@@ -47,6 +49,14 @@ public class ControlPanel extends JPanel{
 		browse.setSize(80, 30);
 		browse.addMouseListener(BH);
 		add(browse);
+		
+		loadImage = new JButton("LoadImage");
+		loadImage.setLocation(450, 30);
+		loadImage.setSize(80, 30);
+		loadImage.addMouseListener(new LoadImageEvent(ip.getPApplet(),BH));
+		add(loadImage);
+		
+		
 			
 	}
 

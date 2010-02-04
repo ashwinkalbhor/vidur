@@ -34,9 +34,8 @@ public class BrowseHandler extends MouseAdapter{
 			System.out.println("APPROVED"); 
 			path = chooser.getSelectedFile().getAbsolutePath();
 			filePath.setText(path);
-			ip=new ImagePanel1("data/Images/o157.jpg");
-			//ip.setBounds(0, 0, 200, 200);
-		}
+			System.out.println(path+" BH path");
+			}
 		if(decision == JFileChooser.ERROR_OPTION){
 			filePath.setText("Error occured");
 			
@@ -47,7 +46,8 @@ public class BrowseHandler extends MouseAdapter{
 	}
 	
 	public String returnPath(){
-		return path;
+		System.out.println(filePath.getText()+" returnPath BH");
+		return filePath.getText();
 	}
 
 }
