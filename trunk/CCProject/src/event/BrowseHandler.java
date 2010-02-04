@@ -1,5 +1,7 @@
 package event;
 
+import gui.ImagePanel1;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -7,16 +9,15 @@ import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import control.ImagePanel1;
 public class BrowseHandler extends MouseAdapter{
 	private JFileChooser chooser;
 	private JTextField filePath;
-	//public ImagePanel1 IP;
+	public ImagePanel1 ip;
 	//public ImagePanel1 copyIP;
 	private String path;
-	public BrowseHandler(JTextField filepath){
+	public BrowseHandler(JTextField filepath,ImagePanel1 ip){
 		filePath = filepath;
-		//this.IP=ip;
+		this.ip=ip;
 		chooser = new JFileChooser();
 		chooser.addChoosableFileFilter(new FilterFile(".jpeg","JPEG ImageFile"));
 		chooser.addChoosableFileFilter(new FilterFile(".jpg","JPG ImageFile"));
@@ -33,12 +34,12 @@ public class BrowseHandler extends MouseAdapter{
 			System.out.println("APPROVED"); 
 			path = chooser.getSelectedFile().getAbsolutePath();
 			filePath.setText(path);
-			//copyIP=new ImagePanel1("data/Images/o157.jpg");
-			//IP.loadImagePanel("data/Images/o157.jpg");
-			//IP.setBounds(0, 0, 200, 200);
+			ip=new ImagePanel1("data/Images/o157.jpg");
+			//ip.setBounds(0, 0, 200, 200);
 		}
 		if(decision == JFileChooser.ERROR_OPTION){
 			filePath.setText("Error occured");
+			
 		}
 		if(decision == JFileChooser.CANCEL_OPTION){
 			filePath.setText("Please Select file");
