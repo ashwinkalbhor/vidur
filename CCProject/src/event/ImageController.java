@@ -20,7 +20,5 @@ public class ImageController implements ChangeListener{
 		
 	}
 	
-	public int returnValue(){
-		return js.getValue();
-	}
+	
 }
