@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 
 public class GUI extends JFrame {
 		private static String s="data/Images/1.jpg";
+		
 	public GUI(String frameName){
 		super(frameName);
 		
