@@ -11,6 +11,7 @@ import javax.swing.event.ChangeEvent;
 
 import processing.core.PApplet;
 
+import event.CircleController;
 import event.ImageController;
 
 public class ImageControl extends JPanel {
@@ -35,21 +36,16 @@ public class ImageControl extends JPanel {
 	imageScale.setPaintTicks(true);
 	ImageController ic=new ImageController(ih);
 	imageScale.addChangeListener(ic);
-	//System.out.println(ic.returnValue());
-	//System.out.println("ImageScale Value" + ic.returnValue() +"\n");
-	
 	add(imageScale);
 	
-	scaleRadius = new JSlider(0,100);
+	scaleRadius = new JSlider(0,200);
 	scaleRadius.setSize(300,100);
-	scaleRadius.setMajorTickSpacing(10);
+	scaleRadius.setMajorTickSpacing(20);
 	scaleRadius.setMinorTickSpacing(1);
 	scaleRadius.setPaintLabels(true);
 	scaleRadius.setPaintTicks(true);
-	ImageController ic1=new ImageController(null);
-	//scaleRadius.addChangeListener(ic1);
-	//SystemscaleRadius.getValue());
-	//System.out.println("scaleRadius Value " + IC2.returnValue() +"\n"); 
+	CircleController cc=new CircleController(ih);
+	scaleRadius.addChangeListener(cc);
 	add(scaleRadius);
 	
 	}

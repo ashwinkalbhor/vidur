@@ -8,6 +8,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
 
+import event.ColorController;
+
 public class ColorControl extends JPanel{
 	private JSlider ControlRed;
 	private JSlider ControlGreen;
@@ -15,15 +17,14 @@ public class ColorControl extends JPanel{
 	private JLabel red;
 	private JLabel green;
 	private JLabel blue;
-	
-	public ColorControl(){
+	private ImageHandler ih;
+	public ColorControl(ImageHandler ih){
 		setBorder(BorderFactory.createLineBorder(new Color(255,0,0)));
 		
 		GridLayout gbl= new GridLayout(3,2);
 		this.setLayout(gbl);
-		
+		this.ih = ih;
 		ControlRed = new JSlider(0,255);
-		add(ControlRed);
 		ControlRed.setSize(300,100);
 		ControlRed.setMajorTickSpacing(50);
 		ControlRed.setMinorTickSpacing(1);
@@ -35,6 +36,9 @@ public class ColorControl extends JPanel{
 		red.setBackground(new Color(255,0,0));
 		red.setLabelFor(ControlRed);
 		red.setForeground(new Color(255,0,0));		
+		ColorController redCol=new ColorController(ih,red);
+		ControlRed.addChangeListener(redCol);
+		add(ControlRed);
 		add(red);
 		
 		ControlGreen = new JSlider(0,255);
@@ -43,13 +47,15 @@ public class ColorControl extends JPanel{
 		ControlGreen.setMinorTickSpacing(1);
 		ControlGreen.setPaintLabels(true);
 		ControlGreen.setPaintTicks(true);
-		add(ControlGreen);
 		green = new JLabel();
 		green.setSize(50, 30);
 		green.setText("Green");
 		green.setBackground(new Color(255,200,20));
 		green.setLabelFor(ControlGreen);
 		green.setForeground(new Color(0,255,0));
+		ColorController greenCol=new ColorController(ih,green);
+		ControlGreen.addChangeListener(greenCol);
+		add(ControlGreen);
 		add(green);
 		
 		ControlBlue = new JSlider(0,255);
@@ -58,13 +64,15 @@ public class ColorControl extends JPanel{
 		ControlBlue.setMinorTickSpacing(1);
 		ControlBlue.setPaintLabels(true);
 		ControlBlue.setPaintTicks(true);
-		add(ControlBlue);
 		blue = new JLabel();
 		blue.setSize(50, 30);
 		blue.setText("Blue");
 		blue.setBackground(new Color(255,200,20));
 		blue.setLabelFor(ControlBlue);
 		blue.setForeground(new Color(0,0,255));
+		ColorController blueCol=new ColorController(ih,blue);
+		ControlBlue.addChangeListener(blueCol);
+		add(ControlBlue);
 		add(blue);
 		
 	}
