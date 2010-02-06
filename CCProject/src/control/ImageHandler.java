@@ -5,28 +5,37 @@ import processing.core.PImage;
 
 public class ImageHandler extends PApplet{
 	private String path="data/Images/1.jpg";
-	private int x,y;
 	private float sc =1.0f;
+	private float cr = 200.0f;
 	PImage img;
+	private float r = 255.0f;
+	private float gr = 255.0f;
+	private float b = 255.0f;
 	public ImageHandler(String path){
 		this.path=path;	
 	}
 	
 	public void setup(){
 		size(550,400);
-		//background(0);
 		img = new PImage();
 		img=loadImage(path);
-		x=img.width;
-		y=img.height;
+		smooth();
 	}
 	
 	public void draw(){
 		
 		fill(0);
 		rect(0,0,550,400);
+		translate(width/2,height/2);
+		pushMatrix();
 		scale(sc);
-		image(img,275-x/2,200-y/2,x,y);
+		tint(r, gr, b);
+		image(img,-img.width/2.0f,-img.height/2.0f,img.width,img.height);
+		popMatrix();
+		stroke(255,0,0);
+		strokeWeight(1.0f);
+		noFill();
+		drawCircle();
 		noLoop();
 	}
 	
@@ -38,5 +47,21 @@ public class ImageHandler extends PApplet{
 		this.sc = sc;
 	}
 	
+	public void drawCircle(){
+		ellipse(0,0,cr,cr);
+	}
 	
+	public void setCircleRadius(float cr){
+		this.cr = cr;
+	}
+	
+	public void setRed(float r){
+		this.r = r;
+	}
+	public void setGreen(float gr){
+		this.gr = gr;
+	}
+	public void setBlue(float b){
+		this.b = b;
+	}
 }

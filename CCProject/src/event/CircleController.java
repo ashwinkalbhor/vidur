@@ -6,10 +6,10 @@ import javax.swing.event.ChangeListener;
 
 import control.ImageHandler;
 
-
-public class ImageController implements ChangeListener{
+public class CircleController implements ChangeListener{
+	private JSlider js;
 	private ImageHandler ih;
-	public ImageController(ImageHandler ih){
+	public CircleController(ImageHandler ih){
 		this.ih= ih;
 	}
 	
@@ -17,10 +17,9 @@ public class ImageController implements ChangeListener{
 	@Override
 	public void stateChanged(ChangeEvent ce) {
 		JSlider js=(JSlider) ce.getSource();
-		ih.setScale(js.getValue()/20.0f);
+		System.out.println(js.getValue());
+		ih.setCircleRadius(js.getValue()*2.0f);
 		ih.redraw();
 		
 	}
-	
-	
 }
