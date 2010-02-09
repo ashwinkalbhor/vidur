@@ -4,10 +4,11 @@ import processing.core.PApplet;
 import processing.core.PImage;
 
 public class ImageHandler extends PApplet{
+	private static final long serialVersionUID = -5394191045615392851L;
 	private String path="data/Images/1.jpg";
 	private float sc =1.0f;
 	private float cr = 200.0f;
-	PImage img;
+	private PImage img;
 	private float r = 255.0f;
 	private float gr = 255.0f;
 	private float b = 255.0f;
@@ -63,5 +64,9 @@ public class ImageHandler extends PApplet{
 	}
 	public void setBlue(float b){
 		this.b = b;
+	}
+	
+	public void setImage(String path){
+		img=loadImage(path);
 	}
 }

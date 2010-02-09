@@ -15,7 +15,7 @@ import event.BrowseHandler;
 import event.LoadImageEvent;
 
 public class ControlPanel extends JPanel{
-	
+	private static final long serialVersionUID = -6581079276015103030L;
 	private JTextField filePath;
 	public JButton browse;
 	private JButton loadImage;
@@ -31,7 +31,7 @@ public class ControlPanel extends JPanel{
 		filePath.setSize(300, 30);
 		add(filePath);
 		
-		BrowseHandler BH = new BrowseHandler(filePath,ip1);
+		BrowseHandler BH = new BrowseHandler(filePath,ip1,ip2);
 		
 		ColorControl colorControl = new ColorControl(ip2.getPApplet());
 		colorControl.setBounds(10, 70, 300, 180);
@@ -54,10 +54,8 @@ public class ControlPanel extends JPanel{
 		loadImage = new JButton("LoadImage");
 		loadImage.setLocation(450, 30);
 		loadImage.setSize(80, 30);
-		loadImage.addMouseListener(new LoadImageEvent(ip1.getPApplet(),BH));
+		//loadImage.addMouseListener(new LoadImageEvent(ip1.getPApplet(),BH));
 		add(loadImage);
-		
-		
 			
 	}
 

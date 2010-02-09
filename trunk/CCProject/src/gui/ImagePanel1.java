@@ -6,6 +6,7 @@ import javax.swing.JPanel;
 import control.ImageHandler;
 
 public class ImagePanel1 extends JPanel{
+	private static final long serialVersionUID = 4756979408320177070L;
 	ImageHandler IH;
 	public ImagePanel1(String path){
 		setBorder(BorderFactory.createLineBorder(new Color(0,0,0)));

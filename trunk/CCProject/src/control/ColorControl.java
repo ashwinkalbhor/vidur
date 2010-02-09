@@ -11,6 +11,7 @@ import javax.swing.JSlider;
 import event.ColorController;
 
 public class ColorControl extends JPanel{
+	private static final long serialVersionUID = 3448980768705941232L;
 	private JSlider ControlRed;
 	private JSlider ControlGreen;
 	private JSlider ControlBlue;

@@ -12,12 +12,12 @@ import javax.swing.JTextField;
 public class BrowseHandler extends MouseAdapter{
 	private JFileChooser chooser;
 	private JTextField filePath;
-	public ImagePanel1 ip;
-	//public ImagePanel1 copyIP;
+	public ImagePanel1 ip1,ip2;
 	private String path;
-	public BrowseHandler(JTextField filepath,ImagePanel1 ip){
+	public BrowseHandler(JTextField filepath,ImagePanel1 ip1,ImagePanel1 ip2){
 		filePath = filepath;
-		this.ip=ip;
+		this.ip1=ip1;
+		this.ip2=ip2;
 		chooser = new JFileChooser();
 		chooser.addChoosableFileFilter(new FilterFile(".jpeg","JPEG ImageFile"));
 		chooser.addChoosableFileFilter(new FilterFile(".jpg","JPG ImageFile"));
@@ -31,10 +31,12 @@ public class BrowseHandler extends MouseAdapter{
 		super.mouseClicked(me);
 		int decision = chooser.showOpenDialog(null);
 		if(decision == JFileChooser.APPROVE_OPTION){
-			System.out.println("APPROVED"); 
 			path = chooser.getSelectedFile().getAbsolutePath();
 			filePath.setText(path);
-			System.out.println(path+" BH path");
+			ip1.getPApplet().setImage(path);
+			ip2.getPApplet().setImage(path);
+			ip1.getPApplet().redraw();
+			ip2.getPApplet().redraw();
 			}
 		if(decision == JFileChooser.ERROR_OPTION){
 			filePath.setText("Error occured");
@@ -46,7 +48,6 @@ public class BrowseHandler extends MouseAdapter{
 	}
 	
 	public String returnPath(){
-		System.out.println(filePath.getText()+" returnPath BH");
 		return filePath.getText();
 	}
 
