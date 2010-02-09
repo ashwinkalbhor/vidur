@@ -1,16 +1,15 @@
 package gui;
 
-import java.awt.Container;
 import javax.swing.JFrame;
 
 public class GUI extends JFrame {
+	private static final long serialVersionUID = -591008432209644219L;
 		private  String s="data/Images/1.jpg";
 		
 	public GUI(String frameName){
 		super(frameName);
 		
 		
-		Container contains = getContentPane();
 		
 		ImagePanel1 ip1 = new ImagePanel1(s);
 		ip1.setBounds(20, 20, 550, 400);
