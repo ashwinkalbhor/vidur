@@ -7,7 +7,6 @@ import javax.swing.event.ChangeListener;
 import control.ImageHandler;
 
 public class CircleController implements ChangeListener{
-	private JSlider js;
 	private ImageHandler ih;
 	public CircleController(ImageHandler ih){
 		this.ih= ih;
