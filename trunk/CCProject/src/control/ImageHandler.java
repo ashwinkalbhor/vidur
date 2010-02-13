@@ -8,6 +8,7 @@ public class ImageHandler extends PApplet{
 	private String path="data/Images/1.jpg";
 	private float sc =1.0f;
 	private float cr = 200.0f;
+	private float level=1.0f;
 	private PImage img;
 	private float r = 255.0f;
 	private float gr = 255.0f;
@@ -31,7 +32,8 @@ public class ImageHandler extends PApplet{
 		pushMatrix();
 		scale(sc);
 		tint(r, gr, b);
-		image(img,-img.width/2.0f,-img.height/2.0f,img.width,img.height);
+		filter(THRESHOLD,level);
+		image(img,-400/2.0f,-400/2.0f,400,400);
 		popMatrix();
 		stroke(255,0,0);
 		strokeWeight(1.0f);
@@ -41,6 +43,7 @@ public class ImageHandler extends PApplet{
 	}
 	
 	public void setFilePath(String path){
+		this.path = path;
 		img = loadImage(path);
 	}
 	
@@ -67,6 +70,15 @@ public class ImageHandler extends PApplet{
 	}
 	
 	public void setImage(String path){
+		this.path = path;
 		img=loadImage(path);
+	}
+	
+	public void setThresholdLevel(int level){
+		this.level =(float) level/100;
+	}
+	
+	public String getFilePath(){
+		return path;
 	}
 }

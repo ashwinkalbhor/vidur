@@ -1,6 +1,9 @@
 package gui;
 
 import event.BrowseHandler;
+import event.ImageThresholdEvent;
+import event.ImageTransferEvent;
+import event.LoadImageEvent;
 
 import java.awt.Color;
 
@@ -12,11 +15,13 @@ import javax.swing.JTextField;
 import control.CalculateControl;
 import control.ColorControl;
 import control.ImageControl;
+import control.ProcessImage;
 
 public class ControlPanel extends JPanel{
 	private static final long serialVersionUID = -6581079276015103030L;
 	private JTextField filePath;
-	public JButton browse;
+	private JButton browse;
+	private JButton transfer;
 	private JButton loadImage;
 	public ControlPanel(ImagePanel1 ip1,ImagePanel1 ip2){
 		setBorder(BorderFactory.createLineBorder(new Color(255,255,0)));
@@ -40,6 +45,10 @@ public class ControlPanel extends JPanel{
 		calculate.setBounds(800, 140, 300, 100);
 		add(calculate);
 		
+		ProcessImage pi = new ProcessImage(ip2.getPApplet());
+		pi.setBounds(460, 20, 300, 200);
+		add(pi);
+		
 		browse = new JButton("Browse");
 		browse.setLocation(350,30);
 		browse.setSize(80, 30);
@@ -47,10 +56,17 @@ public class ControlPanel extends JPanel{
 		add(browse);
 		
 		loadImage = new JButton("LoadImage");
-		loadImage.setLocation(450, 30);
+		loadImage.setLocation(350, 70);
 		loadImage.setSize(80, 30);
-		//loadImage.addMouseListener(new LoadImageEvent(ip1.getPApplet(),BH));
+		loadImage.addMouseListener(new LoadImageEvent(ip1.getPApplet(),BH));
 		add(loadImage);
+		
+		transfer = new JButton("Transfer");
+		transfer.setLocation(350, 100);
+		transfer.setSize(80, 30);
+		ImageTransferEvent ite = new ImageTransferEvent(ip1.getPApplet(),ip2.getPApplet());
+		transfer.addMouseListener(ite);
+		add(transfer);
 			
 	}
 
