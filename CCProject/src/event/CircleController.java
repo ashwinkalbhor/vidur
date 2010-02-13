@@ -16,7 +16,7 @@ public class CircleController implements ChangeListener{
 	@Override
 	public void stateChanged(ChangeEvent ce) {
 		JSlider js=(JSlider) ce.getSource();
-		System.out.println(js.getValue());
+		//System.out.println(js.getValue());
 		ih.setCircleRadius(js.getValue()*2.0f);
 		ih.redraw();
 		

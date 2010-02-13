@@ -17,7 +17,6 @@ public class LoadImageEvent extends MouseAdapter {
 		super.mouseClicked(me);
 		ip.setFilePath(bh.returnPath());
 		ip.redraw();
-		
-		
+				
 	}
 }
