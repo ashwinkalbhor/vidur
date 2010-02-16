@@ -5,10 +5,15 @@ import processing.core.PImage;
 
 public class ImageHandler extends PApplet{
 	private static final long serialVersionUID = -5394191045615392851L;
-	private String path="data/Images/1.jpg";
+	private String path=null;
+	private boolean flag=false;
+	private boolean flag1=false;
+	private boolean flag2=false;
+	private boolean flag3 = false;
 	private float sc =1.0f;
 	private float cr = 200.0f;
 	private float level=1.0f;
+	private float dilate;
 	private PImage img;
 	private float r = 255.0f;
 	private float gr = 255.0f;
@@ -32,17 +37,28 @@ public class ImageHandler extends PApplet{
 		pushMatrix();
 		scale(sc);
 		tint(r, gr, b);
-		filter(THRESHOLD,level);
+		if(flag1){
 		image(img,-400/2.0f,-400/2.0f,400,400);
+		
+		}
 		popMatrix();
+		
 		stroke(255,0,0);
 		strokeWeight(1.0f);
 		noFill();
+		if(flag2){
+		rect(-this.getCircleRadius()/2,-this.getCircleRadius()/2,this.getCircleRadius(),this.getCircleRadius());
 		drawCircle();
+		}
+		if(flag3==true){
+			filter(THRESHOLD,level);
+			}
+		System.out.println(img.pixels[0]);
 		noLoop();
 	}
 	
 	public void setFilePath(String path){
+		flag1=true;
 		this.path = path;
 		img = loadImage(path);
 	}
@@ -56,29 +72,58 @@ public class ImageHandler extends PApplet{
 	}
 	
 	public void setCircleRadius(float cr){
+		this.flag=false;
 		this.cr = cr;
 	}
 	
+	public int getCircleRadius(){
+		return (int) this.cr;
+	}
+	
 	public void setRed(float r){
+		this.flag=false;
 		this.r = r;
 	}
 	public void setGreen(float gr){
+		this.flag=false;
 		this.gr = gr;
 	}
 	public void setBlue(float b){
+		this.flag=false;
+		
 		this.b = b;
 	}
 	
 	public void setImage(String path){
+		this.flag=false;
+		this.flag1=true;
 		this.path = path;
 		img=loadImage(path);
 	}
 	
 	public void setThresholdLevel(int level){
-		this.level =(float) level/100;
+		this.flag3=true;
+		this.level = (float) level/100;
+	}
+	
+	public void setDilateLevel(int level){
+		this.flag3=true;
+		this.dilate = level/100;
 	}
 	
 	public String getFilePath(){
 		return path;
 	}
+	
+	public void DrawCircleOnClick(){
+		this.flag2=true;
+	}
+	
+	public void ClearCircleOnClicked(){
+		this.flag2=false;
+	}
+	
+	public PImage getPImage(){
+		return img;
+		}
 }

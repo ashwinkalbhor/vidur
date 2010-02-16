@@ -1,7 +1,8 @@
 package gui;
 
 import event.BrowseHandler;
-import event.ImageThresholdEvent;
+import event.ClearCircleEvent;
+import event.DrawCircleEvent;
 import event.ImageTransferEvent;
 import event.LoadImageEvent;
 
@@ -22,7 +23,7 @@ public class ControlPanel extends JPanel{
 	private JTextField filePath;
 	private JButton browse;
 	private JButton transfer;
-	private JButton loadImage;
+	private JButton loadImage,drawcircle,clearcircle;
 	public ControlPanel(ImagePanel1 ip1,ImagePanel1 ip2){
 		setBorder(BorderFactory.createLineBorder(new Color(255,255,0)));
 		setLayout(null);
@@ -46,28 +47,42 @@ public class ControlPanel extends JPanel{
 		add(calculate);
 		
 		ProcessImage pi = new ProcessImage(ip2.getPApplet());
-		pi.setBounds(460, 20, 300, 200);
+		pi.setBounds(460, 10, 320, 200);
 		add(pi);
 		
 		browse = new JButton("Browse");
-		browse.setLocation(350,30);
-		browse.setSize(80, 30);
+		browse.setLocation(335,30);
+		browse.setSize(100, 30);
 		browse.addMouseListener(BH);
 		add(browse);
 		
 		loadImage = new JButton("LoadImage");
-		loadImage.setLocation(350, 70);
-		loadImage.setSize(80, 30);
+		loadImage.setLocation(335, 70);
+		loadImage.setSize(100, 30);
 		loadImage.addMouseListener(new LoadImageEvent(ip1.getPApplet(),BH));
 		add(loadImage);
 		
 		transfer = new JButton("Transfer");
-		transfer.setLocation(350, 100);
-		transfer.setSize(80, 30);
+		transfer.setLocation(335, 110);
+		transfer.setSize(100, 30);
 		ImageTransferEvent ite = new ImageTransferEvent(ip1.getPApplet(),ip2.getPApplet());
 		transfer.addMouseListener(ite);
 		add(transfer);
-			
+		
+		drawcircle = new JButton("Draw Circle");
+		drawcircle.setLocation(335, 150);
+		drawcircle.setSize(100, 30);
+		DrawCircleEvent dce = new DrawCircleEvent(ip1.getPApplet());
+		drawcircle.addMouseListener(dce);
+		add(drawcircle);
+		
+		clearcircle = new JButton("Clear Circle");
+		clearcircle.setLocation(335, 190);
+		clearcircle.setSize(100, 30);
+		ClearCircleEvent cce = new ClearCircleEvent(ip1.getPApplet());
+		clearcircle.addMouseListener(cce);
+		add(clearcircle);
+		
 	}
 
 }
