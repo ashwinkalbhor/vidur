@@ -33,9 +33,7 @@ public class BrowseHandler extends MouseAdapter{
 			path = chooser.getSelectedFile().getAbsolutePath();
 			filePath.setText(path);
 			ip1.getPApplet().setImage(path);
-			ip2.getPApplet().setImage(path);
 			ip1.getPApplet().redraw();
-			ip2.getPApplet().redraw();
 			}
 		if(decision == JFileChooser.ERROR_OPTION){
 			filePath.setText("Error occured");
