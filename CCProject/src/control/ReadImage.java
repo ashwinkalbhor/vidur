@@ -14,7 +14,7 @@ public class ReadImage {
 
 		
 	}
-	public BufferedImage ReadImage(){
+	public BufferedImage ReadPImage(){
 		BufferedImage img = null;
 		try {
 		    img = ImageIO.read(new File(path));
@@ -29,7 +29,7 @@ public class ReadImage {
 	public String WriteImage(){
 		try {
 			
-			ImageIO.write(ReadImage(), "JPEG",new File(subImagePath));
+			ImageIO.write(ReadPImage(), "JPEG",new File(subImagePath));
 			System.out.println("hello");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
