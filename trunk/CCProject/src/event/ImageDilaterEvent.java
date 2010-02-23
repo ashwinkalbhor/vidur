@@ -1,6 +1,6 @@
 package event;
 
-import javax.swing.JSlider;
+//import javax.swing.JSlider;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
@@ -17,8 +17,8 @@ public class ImageDilaterEvent implements ChangeListener{
 	public void stateChanged(ChangeEvent ce) {
 		// TODO Auto-generated method stub
 		//this.stateChanged(ce);
-		JSlider js = (JSlider) ce.getSource();
-		ih.setDilateLevel(js.getValue());
+		//JSlider js = (JSlider) ce.getSource();
+		//ih.setDilateLevel(js.getValue());
 		ih.redraw();
 	}
 

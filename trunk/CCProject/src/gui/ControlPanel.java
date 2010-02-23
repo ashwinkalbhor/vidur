@@ -24,7 +24,7 @@ public class ControlPanel extends JPanel{
 	private JButton browse;
 	private JButton transfer;
 	private JButton loadImage,drawcircle,clearcircle;
-	public ControlPanel(ImagePanel1 ip1,ImagePanel1 ip2){
+	public ControlPanel(ImagePanel ip1,ImagePanel ip2){
 		setBorder(BorderFactory.createLineBorder(new Color(255,255,0)));
 		setLayout(null);
 		filePath = new JTextField("Please Select file",10);

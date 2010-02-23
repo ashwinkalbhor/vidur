@@ -11,14 +11,18 @@ import event.ImageThresholdEvent;
 
 
 public class ProcessImage extends JPanel {
-	private ImageHandler ih;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	//private ImageHandler ih;
 	private JSlider thresholder;
 	private JSlider dilater;
 	private JLabel Threshold;
 	private JLabel Dilate;
 	private JLabel Processor;
 	public ProcessImage(ImageHandler ih){
-		this.ih = ih;
+		//this.ih = ih;
 		setBorder(BorderFactory.createLineBorder(new Color(255,255,0)));
 		setLayout(null);
 		
