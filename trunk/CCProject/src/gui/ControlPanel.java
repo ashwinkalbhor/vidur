@@ -65,7 +65,7 @@ public class ControlPanel extends JPanel{
 		transfer = new JButton("Transfer");
 		transfer.setLocation(335, 110);
 		transfer.setSize(100, 30);
-		ImageTransferEvent ite = new ImageTransferEvent(ip1.getPApplet(),ip2.getPApplet());
+		ImageTransferEvent ite = new ImageTransferEvent(ip1.getPApplet(),ip2.getPApplet(),ip1.getPApplet().getCircleRadius());
 		transfer.addMouseListener(ite);
 		add(transfer);
 		

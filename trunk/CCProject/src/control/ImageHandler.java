@@ -1,11 +1,6 @@
 package control;
 
-import java.awt.image.BufferedImage;
-import java.io.InputStream;
 import java.util.Vector;
-
-import javax.imageio.ImageIO;
-
 import processing.core.PApplet;
 import processing.core.PImage;
 
@@ -15,7 +10,7 @@ public class ImageHandler extends PApplet{
 	private float cr = 200.0f;
 	private int THRESHOLD_PARAM = 0;
 	private float level=1.0f;
-	private PImage img,subimg;
+	private PImage img;
 	private float r = 255.0f;
 	private float gr = 255.0f;
 	private float b = 255.0f;
@@ -28,7 +23,7 @@ public class ImageHandler extends PApplet{
 	public void setup(){
 		size(550,400);
 		img = new PImage();
-		subimg = new PImage();
+		
 		smooth();
 	}
 	
@@ -59,12 +54,17 @@ public class ImageHandler extends PApplet{
 		this.w = img.height*this.getScaleParam(img.width, img.height);
 	}
 	
-	public void setDimForSubImage(PImage img){
-		this.top =  -cr*this.getScaleParam(img.width,img.height)/2.0f;
-		this.left = -cr*this.getScaleParam(img.width,img.height)/2.0f;
-		this.h = cr*this.getScaleParam(img.width,img.height);
-		this.w = cr*this.getScaleParam(img.width,img.height);
+	public void setDimForSubImage(PImage img,int cr){
+		this.img=img;
+		//this.top =  -(cr/this.getScaleParam(img.width,img.height))/2.0f;
+		//this.left = -(cr/this.getScaleParam(img.width,img.height))/2.0f;
+		//this.h = cr/this.getScaleParam(img.width,img.height);
+		//this.w = cr/this.getScaleParam(img.width,img.height);
 		
+		this.top=-cr/2.0f;
+		this.left=-cr/2.0f;
+		this.h=cr;
+		this.w=cr;
 	}
 	
 	public Vector<Float> getDimForSubImage(){
@@ -133,14 +133,13 @@ public class ImageHandler extends PApplet{
 	}
 	
 	public void getSubImage(PImage im){
-	//BufferedImage im1;
-	//im1 = (BufferedImage) ImageIO.getImageReaders(im);
-	
-	
-		Vector<Float> ve;
-		ve = this.getDimForSubImage();
-		System.out.println(ve.elementAt(3));
-		
+	PImage subimg = new PImage((int)this.w, (int)this.h) ; 
+	//this.setDimForSubImage(subimg);
+	subimg.copy(im, (int)this.left, (int)this.top, (int)this.w,(int)this.h , 0, 0, (int)this.w, (int)this.h);
+		println(subimg.get(10, 10));
+		//this.setDimForOriginal(subimg);
+		//this.setDimForSubImage(subimg);
+		this.img = subimg;
 	//System.out.println(im1.getHeight());
 	}	
 }
