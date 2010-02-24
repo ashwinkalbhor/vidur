@@ -9,7 +9,7 @@ public class ImageTransferEvent extends MouseAdapter {
 	//private String path;
 	private ImageHandler ih1,ih2;
 	private int cr;
-	public ImageTransferEvent(ImageHandler ih1,ImageHandler ih2,int cr){
+	public ImageTransferEvent(ImageHandler ih1,ImageHandler ih2){
 		//this.path = path;
 		this.cr = cr;
 		this.ih2 = ih2;
@@ -24,7 +24,7 @@ public class ImageTransferEvent extends MouseAdapter {
 //		ih2.setFilePath(path);
 		//ih2.setImage(ih1.getFilePath());
 		//ih2.setDimForSubImage(ih1.getPImage());
-		ih2.setDimForSubImage(ih1.getPImage(), cr);
+		ih2.setDimForSubImage(ih1.getPImage(), ih1.getCircleRadius());
 		ih2.getSubImage(ih1.getPImage());
 		ih2.redraw();
 		
