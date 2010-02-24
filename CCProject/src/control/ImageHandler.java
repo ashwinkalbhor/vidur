@@ -1,6 +1,5 @@
 package control;
 
-import java.util.Vector;
 import processing.core.PApplet;
 import processing.core.PImage;
 
@@ -35,13 +34,13 @@ public class ImageHandler extends PApplet{
 		if(this.path!=null){
 			image(img,top,left,h,w);
 		}
-		pushMatrix();
+
 		tint(r, gr, b);
 		setStroke();
 		
 		rect(-cr/2.0f,-cr/2.0f,cr,cr);
 		ellipse(0,0,cr,cr);
-		popMatrix();
+
 		noFill();
 		filter(THRESHOLD_PARAM,level);
 		noLoop();
@@ -56,26 +55,12 @@ public class ImageHandler extends PApplet{
 	
 	public void setDimForSubImage(PImage img,int cr){
 		this.img=img;
-		//this.top =  -(cr/this.getScaleParam(img.width,img.height))/2.0f;
-		//this.left = -(cr/this.getScaleParam(img.width,img.height))/2.0f;
-		//this.h = cr/this.getScaleParam(img.width,img.height);
-		//this.w = cr/this.getScaleParam(img.width,img.height);
-		
-		this.top=-cr/2.0f;
-		this.left=-cr/2.0f;
-		this.h=cr;
-		this.w=cr;
+		this.top =  -((cr/2.0f)/this.getScaleParam(img.width,img.height))/2.0f;
+		this.left = -((cr/2.0f)/this.getScaleParam(img.width,img.height))/2.0f;
+		this.h = (cr/2.0f)/this.getScaleParam(img.width,img.height);
+		this.w = (cr/2.0f)/this.getScaleParam(img.width,img.height);
 	}
 	
-	public Vector<Float> getDimForSubImage(){
-		Vector<Float> vec = new Vector<Float>();
-		vec.add(this.top);
-		vec.add(this.left);
-		vec.add(this.h);
-		vec.add(this.w);
-		return vec;
-		
-	}
 	public void setStroke(){
 		stroke(255,0,0,wt);
 		strokeWeight(1.0f);
@@ -135,9 +120,10 @@ public class ImageHandler extends PApplet{
 	public void getSubImage(PImage im){
 	PImage subimg = new PImage((int)this.w, (int)this.h) ; 
 	//this.setDimForSubImage(subimg);
-	subimg.copy(im, (int)this.left, (int)this.top, (int)this.w,(int)this.h , 0, 0, (int)this.w, (int)this.h);
+	subimg.copy(im, im.width/2-(int)this.w, im.height/2-(int)this.h, 2*(int)this.w,2*(int)this.h , 0, 0, (int)this.w, (int)this.h);
 		println(subimg.get(10, 10));
-		//this.setDimForOriginal(subimg);
+		
+		this.setDimForOriginal(subimg);
 		//this.setDimForSubImage(subimg);
 		this.img = subimg;
 	//System.out.println(im1.getHeight());
