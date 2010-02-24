@@ -20,6 +20,8 @@ public class ImageTransferEvent extends MouseAdapter {
 //		ReadImage ri = new  ReadImage(ih1.getFilePath());
 //		this.path = ri.WriteImage();
 //		ih2.setFilePath(path);
+		ih2.setImage(ih1.getFilePath());
+		ih2.setDimForSubImage(ih1.getPImage());
 		ih2.getSubImage(ih1.getPImage());
 		ih2.redraw();
 		
