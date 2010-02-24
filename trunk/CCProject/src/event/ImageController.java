@@ -17,7 +17,7 @@ public class ImageController implements ChangeListener{
 	@Override
 	public void stateChanged(ChangeEvent ce) {
 		JSlider js=(JSlider) ce.getSource();
-		ih.setScale(js.getValue()/20.0f);
+		//ih.setScale(js.getValue()/20.0f);
 		ih.redraw();
 		
 	}

@@ -13,7 +13,7 @@ public class DrawCircleEvent extends MouseAdapter {
 	
 	public void mouseClicked(MouseEvent me){
 		super.mouseClicked(me);
-		ih.DrawCircleOnClick();
+		ih.setStrokeWeight(255);
 		ih.redraw();
 	}
 }

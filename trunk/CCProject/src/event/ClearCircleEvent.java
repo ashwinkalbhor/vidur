@@ -14,7 +14,7 @@ public class ClearCircleEvent extends MouseAdapter {
 	
 	public void mouseClicked(MouseEvent me){
 		super.mouseClicked(me);
-		ih.ClearCircleOnClicked();
+		ih.setStrokeWeight(0);
 		ih.redraw();
 	}
 }
