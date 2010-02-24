@@ -60,10 +60,10 @@ public class ImageHandler extends PApplet{
 	}
 	
 	public void setDimForSubImage(PImage img){
-		this.top =  -cr*this.getScaleParam((int)cr, (int)cr)/2.0f;
-		this.left = -cr*this.getScaleParam((int)cr, (int)cr)/2.0f;
-		this.h = cr*this.getScaleParam((int)cr, (int)cr);
-		this.w = cr*this.getScaleParam((int)cr, (int)cr);
+		this.top =  -cr*this.getScaleParam(img.width,img.height)/2.0f;
+		this.left = -cr*this.getScaleParam(img.width,img.height)/2.0f;
+		this.h = cr*this.getScaleParam(img.width,img.height);
+		this.w = cr*this.getScaleParam(img.width,img.height);
 		
 	}
 	
@@ -133,11 +133,14 @@ public class ImageHandler extends PApplet{
 	}
 	
 	public void getSubImage(PImage im){
-	BufferedImage im1;
+	//BufferedImage im1;
+	//im1 = (BufferedImage) ImageIO.getImageReaders(im);
 	
-	im1 = (BufferedImage) ImageIO.getImageReaders(im);
 	
-	
+		Vector<Float> ve;
+		ve = this.getDimForSubImage();
+		System.out.println(ve.elementAt(3));
+		
 	//System.out.println(im1.getHeight());
 	}	
 }
