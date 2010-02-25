@@ -5,8 +5,6 @@ import javax.swing.JFrame;
 public class GUI extends JFrame {
 	private static final long serialVersionUID = -591008432209644219L;
 		private  String s="data/Images/1.jpg";
-		//private int height;
-		//private int width;
 	public GUI(String frameName,int width,int height){
 		super(frameName);
 		
@@ -19,10 +17,8 @@ public class GUI extends JFrame {
 		this.add(ip2);
 				
 		ControlPanel controlPanel = new ControlPanel(ip1,ip2);
-		controlPanel.setBounds(20,450, 1150, 310);
+		controlPanel.setBounds(20,450, 1150, 260);
 		add(controlPanel);
-		//System.out.println(frameName);
-	
 	}
 	
 }

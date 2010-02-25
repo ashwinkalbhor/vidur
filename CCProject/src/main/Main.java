@@ -15,7 +15,7 @@ public class Main {
 		UIManager.setLookAndFeel("com.jtattoo.plaf.luna.LunaLookAndFeel");
 //		Toolkit toolkit = Toolkit.getDefaultToolkit();
 //		Dimension scrnsize = toolkit.getScreenSize();
-		setGUI(1200,800);
+		setGUI(1200,750);
 		}
 		
 		catch(Exception e){
@@ -31,7 +31,6 @@ public class Main {
 		displayGUI.setResizable(true);
 		displayGUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		displayGUI.setLayout(null);
-		//displayGUI.setResizable(false);
 		displayGUI.setVisible(true);
 	}
 }

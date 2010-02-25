@@ -6,15 +6,16 @@ import processing.core.PImage;
 public class ImageHandler extends PApplet{
 	private static final long serialVersionUID = -5394191045615392851L;
 	private String path=null;
-	private float cr = 200.0f;
+	private PImage img;
 	private int THRESHOLD_PARAM = 0;
 	private float level=1.0f;
-	private PImage img;
+	private float cr = 200.0f;
 	private float r = 255.0f;
 	private float gr = 255.0f;
 	private float b = 255.0f;
 	private float top , left , h, w;
 	private float wt = 0.0f;
+	private boolean CIRCLE_DRAWN = false;
 	public ImageHandler(String path){
 		this.path=path;	
 	}
@@ -31,13 +32,9 @@ public class ImageHandler extends PApplet{
 		fill(0);
 		rect(0,0,550,400);
 		translate(width/2,height/2);
-		if(this.path!=null){
-			image(img,top,left,h,w);
-		}
-
+		image(img,top,left,h,w);
 		tint(r, gr, b);
 		setStroke();
-		
 		rect(-cr/2.0f,-cr/2.0f,cr,cr);
 		ellipse(0,0,cr,cr);
 
@@ -79,6 +76,7 @@ public class ImageHandler extends PApplet{
 		return (int) this.cr;
 	}
 	
+	
 	public void setRed(float r){
 		this.r = r;
 	}
@@ -89,6 +87,9 @@ public class ImageHandler extends PApplet{
 		this.b = b;
 	}
 	
+	public void setTHRESHOLD_PARAM(){
+		this.THRESHOLD_PARAM = 0;
+	}
 	public void setImage(String path){
 		this.path = path;
 		this.THRESHOLD_PARAM = 0;
@@ -109,6 +110,12 @@ public class ImageHandler extends PApplet{
 		return this.img;
 		}
 	
+	public void setCIRCLE_DRAWN_param(boolean cdp){
+		this.CIRCLE_DRAWN = cdp;
+	}
+	public boolean getCIRCLE_DRAWN_param(){
+		return this.CIRCLE_DRAWN;
+	}
 	public float getScaleParam(int a,int b){
 		float  scaleA= (float) 550/a;
 		float scaleB = (float) 400/b;
@@ -119,13 +126,8 @@ public class ImageHandler extends PApplet{
 	
 	public void getSubImage(PImage im){
 	PImage subimg = new PImage((int)this.w, (int)this.h) ; 
-	//this.setDimForSubImage(subimg);
 	subimg.copy(im, im.width/2-(int)this.w, im.height/2-(int)this.h, 2*(int)this.w,2*(int)this.h , 0, 0, (int)this.w, (int)this.h);
-		println(subimg.get(10, 10));
-		
-		this.setDimForOriginal(subimg);
-		//this.setDimForSubImage(subimg);
-		this.img = subimg;
-	//System.out.println(im1.getHeight());
+	this.setDimForOriginal(subimg);
+	this.img = subimg;
 	}	
 }

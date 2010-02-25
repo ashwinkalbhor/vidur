@@ -14,6 +14,7 @@ public class DrawCircleEvent extends MouseAdapter {
 	public void mouseClicked(MouseEvent me){
 		super.mouseClicked(me);
 		ih.setStrokeWeight(255);
+		ih.setCIRCLE_DRAWN_param(true);
 		ih.redraw();
 	}
 }
