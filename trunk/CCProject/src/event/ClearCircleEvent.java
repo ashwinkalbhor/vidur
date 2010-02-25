@@ -12,7 +12,7 @@ public class ClearCircleEvent extends MouseAdapter {
 		
 	}
 	
-	public void mouseClicked(MouseEvent me){
+	public void mousePressed(MouseEvent me){
 		super.mouseClicked(me);
 		ih.setCIRCLE_DRAWN_param(false);
 		ih.setStrokeWeight(0);

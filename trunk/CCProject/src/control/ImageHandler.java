@@ -6,7 +6,7 @@ import processing.core.PImage;
 public class ImageHandler extends PApplet{
 	private static final long serialVersionUID = -5394191045615392851L;
 	private String path=null;
-	private PImage img;
+	private PImage img,subimg;
 	private int THRESHOLD_PARAM = 0;
 	private float level=1.0f;
 	private float cr = 200.0f;
@@ -125,9 +125,13 @@ public class ImageHandler extends PApplet{
 	}
 	
 	public void getSubImage(PImage im){
-	PImage subimg = new PImage((int)this.w, (int)this.h) ; 
-	subimg.copy(im, im.width/2-(int)this.w, im.height/2-(int)this.h, 2*(int)this.w,2*(int)this.h , 0, 0, (int)this.w, (int)this.h);
-	this.setDimForOriginal(subimg);
+	this.subimg = new PImage((int)this.w, (int)this.h) ; 
+	this.subimg.copy(im, im.width/2-(int)this.w, im.height/2-(int)this.h, 2*(int)this.w,2*(int)this.h , 0, 0, (int)this.w, (int)this.h);
+	this.setDimForOriginal(this.subimg);
 	this.img = subimg;
 	}	
+	
+	public PImage setSubImage(){
+		return this.subimg;
+	}
 }

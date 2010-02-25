@@ -29,8 +29,8 @@ public class BrowseHandler extends MouseAdapter{
 	}
 	
 	@Override
-	public void mouseClicked(MouseEvent me) {
-		super.mouseClicked(me);
+	public void mousePressed(MouseEvent me) {
+		super.mousePressed(me);
 		int decision = chooser.showOpenDialog(null);
 		if(decision == JFileChooser.APPROVE_OPTION){
 			path = chooser.getSelectedFile().getAbsolutePath();

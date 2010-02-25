@@ -13,8 +13,8 @@ public class LoadImageEvent extends MouseAdapter {
 		this.bh = bh;
 		
 	}
-	public void mouseClicked(MouseEvent me){
-		super.mouseClicked(me);
+	public void mousePressed(MouseEvent me){
+		super.mousePressed(me);
 		ip.setImage(bh.returnPath());
 		ip.redraw();
 				
