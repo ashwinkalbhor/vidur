@@ -42,7 +42,7 @@ public class ControlPanel extends JPanel{
 		imageControl.setBounds(800, 20, 300, 100);
 		add(imageControl);
 		
-		CalculateControl calculate=new CalculateControl();
+		CalculateControl calculate=new CalculateControl(ip2.getPApplet());
 		calculate.setBounds(800, 140, 300, 100);
 		add(calculate);
 		

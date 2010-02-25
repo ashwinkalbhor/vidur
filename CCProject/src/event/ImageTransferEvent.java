@@ -12,14 +12,14 @@ public class ImageTransferEvent extends MouseAdapter {
 		this.ih1 = ih1;
 	}
 	
-	public void mouseClicked(MouseEvent me){
-		super.mouseClicked(me);
+	public void mousePressed(MouseEvent me){
+		super.mousePressed(me);
 		ih2.setTHRESHOLD_PARAM();
 		if(ih1.getCIRCLE_DRAWN_param()){
 		ih2.setDimForSubImage(ih1.getPImage(), ih1.getCircleRadius());
 		ih2.getSubImage(ih1.getPImage());
-		}
 		ih2.redraw();
+		}
 		
 	}
 }
