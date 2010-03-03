@@ -29,7 +29,7 @@ public class ProcessImage extends JPanel {
 		Processor = new JLabel("Process Image");
 		Processor.setSize(120, 20);
 		Processor.setLocation(10, 10);
-		Processor.setName("Pocess Image");
+		Processor.setName("Process Image");
 		add(Processor);
 				
 		Threshold = new JLabel("Threshold");
@@ -65,6 +65,8 @@ public class ProcessImage extends JPanel {
 		//ImageDilaterEvent ide = new ImageDilaterEvent(ih);
 		//dilater.addChangeListener(ide);
 		add(dilater);
+		
+		
 	}
 	
 	

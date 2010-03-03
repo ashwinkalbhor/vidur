@@ -18,7 +18,7 @@ public class ColorController implements ChangeListener{
 
 	public void stateChanged(ChangeEvent ce) {
 		JSlider js=(JSlider) ce.getSource();
-		System.out.println(js.getValue());
+		//System.out.println(js.getValue());
 		if(jl.getText()=="Red"){
 			ih.setRed(js.getValue());
 		}
