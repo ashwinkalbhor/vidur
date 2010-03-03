@@ -20,13 +20,14 @@ public class CalculateControl extends JPanel{
 		
 		setBorder(BorderFactory.createLineBorder(new Color(255,0,0)));
 		this.setLayout(new GridLayout(2,1));
-		process = new JButton("Process");
-		process.setBounds(10, 30, 80, 40);
-		ProcessImageEvent pie = new ProcessImageEvent(ih);
-		process.addMouseListener(pie);
-		add(process);
 		count = new JTextField("Count");
 		count.setBounds(100, 30, 350, 40);
+		
+		process = new JButton("Process");
+		process.setBounds(10, 30, 80, 40);
+		ProcessImageEvent pie = new ProcessImageEvent(ih,count);
+		process.addMouseListener(pie);
+		add(process);
 		add(count);
 		
 	}

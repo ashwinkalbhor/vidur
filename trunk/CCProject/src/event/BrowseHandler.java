@@ -17,8 +17,9 @@ public class BrowseHandler extends MouseAdapter{
 		filePath = filepath;
 		this.ip1=ip1;
 		this.ip2=ip2;
-		chooser = new JFileChooser();
-		chooser.setCurrentDirectory(new File("data/Images"));
+		chooser = new JFileChooser(new File("data/Images"));
+		//chooser.changeToParentDirectory();
+		//chooser.setCurrentDirectory(new File("data/Images"));
 		chooser.addChoosableFileFilter(new FilterFile(".jpeg","JPEG ImageFile"));
 		chooser.addChoosableFileFilter(new FilterFile(".jpg","JPG ImageFile"));
 		chooser.addChoosableFileFilter(new FilterFile(".bmp","BMP ImageFile"));
