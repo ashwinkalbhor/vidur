@@ -3,37 +3,40 @@ package control;
 import processing.core.PImage;
 
 public class CountColonies {
-	private ImageHandler ih;
+	//private ImageHandler ih;
 	private int total;
 	private PImage img;
-	public CountColonies(ImageHandler ih){
-		this.ih = ih;
-		img = ih.getPImage();
+	public CountColonies(PImage img){
+		this.img=img;
 		
 	}
 	
 	public boolean count(int x,int y){
+		//img = ih.gettempImage();
+		
 		total = 0;
-		final int a = x;
-		final int b = y;
-		for (int i = a-1; i < a+2; i++) {
-			for (int j = b-1; j < b+2; j++) {
-				if(img.get(i, j)== -1){
+		//int a = x;
+		//int b = y;
+		if(x>2 && y>2 && x<img.width-2 && y<img.height-2){
+		for (int i = x-1; i < x+2; i++) {
+			for (int j = y-1; j < y+2; j++) {
+				if(img.get(i, j)== -16777216){
 					total+=1;
 				}
 			}
 		}
 		
-		if(total>=6){
-			img.set(a, b, 0);
-//			if(this.count(a-1,b)){}
-//			if(this.count(a,b-1)){}
-//			if(this.count(a+1,b)){}
-//			if(this.count(a,b+1)){}
-//			
+		if(total>6){
+			CountColonies cc = new CountColonies(img);
+			if(cc.count(x-1,y)){}
+			if(cc.count(x,y-1)){}
+	    	//if(cc.count(x+1,y)){img.set(x, y, 0);}
+			//if(cc.count(x,y+1)){img.set(x, y, 0);}
+//			//System.out.println("hi");
+			
 			return true;
 		}
-		
+		}
 		return false;
 	}
 }

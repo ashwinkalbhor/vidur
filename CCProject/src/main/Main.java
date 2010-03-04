@@ -11,7 +11,7 @@ public class Main {
 	
 	public static void main(String[] args){
 		try{
-		UIManager.setLookAndFeel("com.jtattoo.plaf.acryl.AcrylLookAndFeel");
+		UIManager.setLookAndFeel("com.jtattoo.plaf.luna.LunaLookAndFeel");
 //		Toolkit toolkit = Toolkit.getDefaultToolkit();
 //		Dimension scrnsize = toolkit.getScreenSize();
 		setGUI(1200,750);

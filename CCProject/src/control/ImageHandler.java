@@ -6,7 +6,7 @@ import processing.core.PImage;
 public class ImageHandler extends PApplet{
 	private static final long serialVersionUID = -5394191045615392851L;
 	private String path=null;
-	private PImage img,subimg;
+	private PImage img,subimg,temp_img;
 	private int THRESHOLD_PARAM = 0;
 	private float level=1.0f;
 	private float cr = 200.0f;
@@ -29,21 +29,23 @@ public class ImageHandler extends PApplet{
 		fill(0);
 		rect(0,0,550,400);
 		translate(width/2,height/2);
-		img.filter(THRESHOLD_PARAM,level);
-		image(this.img,top,left,h,w);
+		//img.filter(THRESHOLD_PARAM,level);
+		image(this.img,left,top,h,w);
 		tint(r, gr, b);
 		setStroke();
 		rect(-cr/2.0f,-cr/2.0f,cr,cr);
 		ellipse(0,0,cr,cr);
 		
 		filter(THRESHOLD_PARAM,level);
+		this.settempImage(this.get(75, 0, 400, 400));
 		//println(img.get(200,200));
 		noFill();
 		noLoop();
+		//println(left + "\t" + top + "\t" + h + "\t" + w);
 	}
 	public void setDimForOriginal(PImage img){
-		this.top =  -img.width*this.getScaleParam(img.width, img.height)/2.0f;
-		this.left = -img.height*this.getScaleParam(img.width, img.height)/2.0f;
+		this.left =  -img.width*this.getScaleParam(img.width, img.height)/2.0f;
+		this.top = -img.height*this.getScaleParam(img.width, img.height)/2.0f;
 		this.h = img.width*this.getScaleParam(img.width, img.height);
 		this.w = img.height*this.getScaleParam(img.width, img.height);
 	}
@@ -123,10 +125,10 @@ public class ImageHandler extends PApplet{
 	public void setPImage(PImage pi){
 		this.img = pi;
 	}
-	public PImage getSubImage(){
-		return this.subimg;
+	public PImage gettempImage(){
+		return this.temp_img;
 	}
-	public void setSubImage(PImage pi){
-		this.subimg = pi;
+	public void settempImage(PImage pi){
+		this.temp_img = pi;
 	}
 }

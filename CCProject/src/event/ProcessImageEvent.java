@@ -19,24 +19,31 @@ public class ProcessImageEvent extends MouseAdapter{
 	}
 	
 	public void mousePressed(MouseEvent me){
+		//working with images with black colonies against white background eg.Ecoli.jpg
 		super.mousePressed(me);
-		cc = new CountColonies(ih);
-		for (int i = 1; i < ih.getPImage().width-2; i++) {
-			for (int j = 1; j < ih.getPImage().height-2; j++) {
-				if(cc.count(i, j)){
+		cc = new CountColonies(ih.gettempImage());
+		for (int i = 1; i < ih.gettempImage().height-1; i++) {
+			for (int j = 1; j < ih.gettempImage().width-1; j++) {
+				if(cc.count(j, i)){
+					ih.set(j, i, 0);
 					counter++;
+					System.out.println(counter);
 				}
-				if(ih.getPImage().get(i, j)== -1){
-				//System.out.print(1 + "");
+				if(ih.gettempImage().get(j, i)== -1){			//for white background pixels
+				//System.out.print(0 + "");
 					}
-				if(ih.getPImage().get(i, j) == -16777216){
-					//System.out.print(0+"");
+				if(ih.gettempImage().get(j, i) == -16777216){	//for black colony pixels
+				//System.out.print(1+"");
 					}
+				
 			}
-			System.out.println();
+			//System.out.println();
 		}
+		
+		//System.out.println(ih.gettempImage().height + "\t" + ih.gettempImage().width);
 		count.setText("d no.of colonies are "+counter);
-		//System.out.println("The Number Of colonies are " + counter);
+		System.out.println("The Number Of colonies are " + counter);
+		//System.out.println(ih.gettempImage().width+"\n"+ih.gettempImage().height);
 	}
 	
 }
