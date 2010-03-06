@@ -23,7 +23,7 @@ public class ProcessImage extends JPanel {
 	private JLabel Processor;
 	public ProcessImage(ImageHandler ih){
 		//this.ih = ih;
-		setBorder(BorderFactory.createLineBorder(new Color(255,255,0)));
+		setBorder(BorderFactory.createLineBorder(new Color(0,0,0)));
 		setLayout(null);
 		
 		Processor = new JLabel("Process Image");
