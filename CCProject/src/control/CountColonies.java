@@ -1,7 +1,7 @@
 package control;
 
 import processing.core.PImage;
-
+import processing.core.*;
 public class CountColonies {
 	//private ImageHandler ih;
 	private int total;
@@ -26,13 +26,15 @@ public class CountColonies {
 			}
 		}
 		
-		if(total>6){
-			CountColonies cc = new CountColonies(img);
-			if(cc.count(x-1,y)){}
-			if(cc.count(x,y-1)){}
-	    	//if(cc.count(x+1,y)){img.set(x, y, 0);}
-			//if(cc.count(x,y+1)){img.set(x, y, 0);}
+		if(total==9){
+			//CountColonies cc = new CountColonies(img);
+			if(count((int)(x+1),y)){}
+			if(count(x,(int)(y+1))){}
+//			if(count((int)(x-1),y)){}
+//			if(count(x,(int)(y-1))){}
+//	    	
 //			//System.out.println("hi");
+			this.img.set(x, y,255);
 			
 			return true;
 		}

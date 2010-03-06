@@ -1,5 +1,12 @@
 package control;
 
+import java.awt.geom.Ellipse2D;
+import java.awt.image.BufferedImage;
+import java.awt.image.ColorModel;
+
+import javax.imageio.stream.ImageInputStream;
+import javax.imageio.stream.ImageInputStreamImpl;
+
 import processing.core.PApplet;
 import processing.core.PImage;
 
@@ -117,7 +124,29 @@ public class ImageHandler extends PApplet{
 	public void drawSubImage(PImage im){
 	this.subimg = new PImage((int)this.w, (int)this.h) ; 
 	this.subimg.copy(im, im.width/2-(int)this.w, im.height/2-(int)this.h, 2*(int)this.w,2*(int)this.h , 0, 0, (int)this.w, (int)this.h);
-	
+	Ellipse2D.Double ellipse = new Ellipse2D.Double(0,0,subimg.width,subimg.height);
+	BufferedImage bimage = (BufferedImage) subimg.getImage();
+	ColorModel cmodel = bimage.getColorModel();
+	for (int i = 0,pnum =0; i<subimg.width;i++){
+		for(int j =0 ; j<subimg.height;j++){
+			if(!ellipse.contains(i, j)){
+				subimg.set(i, j, 0);
+			}
+			int r = cmodel.getRed(pnum);
+			int g = cmodel.getGreen(pnum);
+			int b = cmodel.getBlue(pnum);
+			System.out.println(cmodel.getRGB(pnum));
+			if(r > 200){
+			//System.out.println(r +"\t"+g +"\t"+b +"\t");
+				
+			}else if(g > 200){
+				
+			}else if(b > 200){
+				
+			}
+			pnum++;
+		}
+	}
 	this.setDimForOriginal(this.subimg);
 	setPImage(subimg);
 	}

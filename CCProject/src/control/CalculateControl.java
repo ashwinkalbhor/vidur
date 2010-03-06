@@ -18,7 +18,7 @@ public class CalculateControl extends JPanel{
 	public CalculateControl(ImageHandler ih){
 		//this.ih = ih;
 		
-		setBorder(BorderFactory.createLineBorder(new Color(255,0,0)));
+		setBorder(BorderFactory.createLineBorder(new Color(0,0,0)));
 		this.setLayout(new GridLayout(2,1));
 		count = new JTextField("Count");
 		count.setBounds(100, 30, 350, 40);

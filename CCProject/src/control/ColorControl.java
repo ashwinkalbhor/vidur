@@ -19,7 +19,7 @@ public class ColorControl extends JPanel{
 	private JLabel green;
 	private JLabel blue;
 	public ColorControl(ImageHandler ih){
-		setBorder(BorderFactory.createLineBorder(new Color(255,0,0)));
+		setBorder(BorderFactory.createLineBorder(new Color(0,0,0)));
 		GridLayout gbl= new GridLayout(3,2);
 		this.setLayout(gbl);
 		ControlRed = new JSlider(0,255);

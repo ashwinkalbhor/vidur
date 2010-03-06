@@ -31,5 +31,6 @@ public class Main {
 		displayGUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		displayGUI.setLayout(null);
 		displayGUI.setVisible(true);
+		displayGUI.setResizable(false);
 	}
 }
