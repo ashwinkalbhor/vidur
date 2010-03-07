@@ -38,7 +38,7 @@ public class ControlPanel extends JPanel{
 		colorControl.setBounds(10, 70, 300, 180);
 		add(colorControl);
 		
-		ImageControl imageControl =new ImageControl(ip1.getPApplet());
+		ImageControl imageControl =new ImageControl(ip1.getPApplet(),ip2.getPApplet());
 		imageControl.setBounds(800, 20, 300, 100);
 		add(imageControl);
 		
@@ -60,7 +60,8 @@ public class ControlPanel extends JPanel{
 		loadImage.setLocation(335, 70);
 		loadImage.setSize(100, 30);
 		loadImage.addMouseListener(new LoadImageEvent(ip1.getPApplet(),BH));
-		add(loadImage);
+		loadImage.setEnabled(false);
+		//add(loadImage);
 		
 		transfer = new JButton("Transfer");
 		transfer.setLocation(335, 110);

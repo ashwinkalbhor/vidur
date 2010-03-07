@@ -1,11 +1,6 @@
 package control;
 
 import java.awt.geom.Ellipse2D;
-import java.awt.image.BufferedImage;
-import java.awt.image.ColorModel;
-
-import javax.imageio.stream.ImageInputStream;
-import javax.imageio.stream.ImageInputStreamImpl;
 
 import processing.core.PApplet;
 import processing.core.PImage;
@@ -15,9 +10,12 @@ public class ImageHandler extends PApplet{
 	private String path=null;
 	private PImage img,subimg,temp_img;
 	private int THRESHOLD_PARAM = 0;
+	private int x=-10000;
+	private int y = -10000;
 	private float level=1.0f;
 	private float cr = 200.0f;
 	private float r = 255.0f;
+	private float sc = 0.0f;
 	private float gr = 255.0f;
 	private float b = 255.0f;
 	private float top , left , h, w;
@@ -35,9 +33,13 @@ public class ImageHandler extends PApplet{
 		
 		fill(0);
 		rect(0,0,550,400);
+		//pushMatrix();
 		translate(width/2,height/2);
 		//img.filter(THRESHOLD_PARAM,level);
+		//pushMatrix();
+		//scale(sc);
 		image(this.img,left,top,h,w);
+		//popMatrix();
 		tint(r, gr, b);
 		setStroke();
 		rect(-cr/2.0f,-cr/2.0f,cr,cr);
@@ -46,7 +48,9 @@ public class ImageHandler extends PApplet{
 		filter(THRESHOLD_PARAM,level);
 		this.settempImage(this.get(75, 0, 400, 400));
 		//println(img.get(200,200));
+		//popMatrix();
 		noFill();
+		rect(this.x-10-width/2,this.y-10-height/2,20,20);
 		noLoop();
 		//println(left + "\t" + top + "\t" + h + "\t" + w);
 	}
@@ -125,26 +129,26 @@ public class ImageHandler extends PApplet{
 	this.subimg = new PImage((int)this.w, (int)this.h) ; 
 	this.subimg.copy(im, im.width/2-(int)this.w, im.height/2-(int)this.h, 2*(int)this.w,2*(int)this.h , 0, 0, (int)this.w, (int)this.h);
 	Ellipse2D.Double ellipse = new Ellipse2D.Double(0,0,subimg.width,subimg.height);
-	BufferedImage bimage = (BufferedImage) subimg.getImage();
-	ColorModel cmodel = bimage.getColorModel();
-	for (int i = 0,pnum =0; i<subimg.width;i++){
+//	BufferedImage bimage = (BufferedImage) subimg.getImage();
+//	ColorModel cmodel = bimage.getColorModel();
+	for (int i = 0; i<subimg.width;i++){
 		for(int j =0 ; j<subimg.height;j++){
 			if(!ellipse.contains(i, j)){
 				subimg.set(i, j, 0);
 			}
-			int r = cmodel.getRed(pnum);
-			int g = cmodel.getGreen(pnum);
-			int b = cmodel.getBlue(pnum);
-			System.out.println(cmodel.getRGB(pnum));
-			if(r > 200){
-			//System.out.println(r +"\t"+g +"\t"+b +"\t");
-				
-			}else if(g > 200){
-				
-			}else if(b > 200){
-				
-			}
-			pnum++;
+//			int r = cmodel.getRed(pnum);
+//			int g = cmodel.getGreen(pnum);
+//			int b = cmodel.getBlue(pnum);
+//			System.out.println(cmodel.getRGB(pnum));
+//			if(r > 200){
+//			//System.out.println(r +"\t"+g +"\t"+b +"\t");
+//				
+//			}else if(g > 200){
+//				
+//			}else if(b > 200){
+//				
+//			}
+//			pnum++;
 		}
 	}
 	this.setDimForOriginal(this.subimg);
@@ -159,5 +163,16 @@ public class ImageHandler extends PApplet{
 	}
 	public void settempImage(PImage pi){
 		this.temp_img = pi;
+	}
+	
+	public void setScale(float sc){
+		this.sc = sc;
+		scale(sc);
+	}
+	
+	public void drawRects(int x,int y){
+		this.setStrokeWeight(255);
+		this.x = x-height/2;
+		this.y = y-width/2;
 	}
 }

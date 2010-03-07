@@ -14,7 +14,7 @@ public class ImageControl extends JPanel {
 	private static final long serialVersionUID = 8244529568780449188L;
 	private JSlider imageScale;
 	private JSlider scaleRadius;
-	public ImageControl(ImageHandler ih){
+	public ImageControl(ImageHandler ih1,ImageHandler ih2){
 	setBorder(BorderFactory.createLineBorder(new Color(0,0,0)));
 	GridLayout gbl= new GridLayout(2,2);
 	this.setLayout(gbl);
@@ -24,7 +24,7 @@ public class ImageControl extends JPanel {
 	imageScale.setMinorTickSpacing(1);
 	imageScale.setPaintLabels(true);
 	imageScale.setPaintTicks(true);
-	ImageController ic=new ImageController(ih);
+	ImageController ic=new ImageController(ih2);
 	imageScale.addChangeListener(ic);
 	add(imageScale);
 	
@@ -34,7 +34,7 @@ public class ImageControl extends JPanel {
 	scaleRadius.setMinorTickSpacing(1);
 	scaleRadius.setPaintLabels(true);
 	scaleRadius.setPaintTicks(true);
-	CircleController cc=new CircleController(ih);
+	CircleController cc=new CircleController(ih1);
 	scaleRadius.addChangeListener(cc);
 	add(scaleRadius);
 	
