@@ -7,7 +7,7 @@ import gui.GUI;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 public class Main {
-	
+	private static int x;
 	
 	public static void main(String[] args){
 		try{
@@ -32,5 +32,6 @@ public class Main {
 		displayGUI.setLayout(null);
 		displayGUI.setVisible(true);
 		displayGUI.setResizable(false);
+		x = (int) Math.round(Math.random())*600;
 	}
 }
