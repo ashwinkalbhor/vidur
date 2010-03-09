@@ -81,7 +81,7 @@ public class CountColonies {
 	public void count() {
 		for (int i = 2; i < this.img.height - 2; i++) {
 			for (int j = 2; j < this.img.width - 2; j++) {
-				System.out.println(this.img.get(i, j));
+				//System.out.println(this.img.get(i, j));
 				if (this.neighbours(i, j) > 8) {
 					this.img.set(i, j, -1);
 					this.clean(i, j);
