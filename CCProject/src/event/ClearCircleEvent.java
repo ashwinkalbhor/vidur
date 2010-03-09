@@ -7,12 +7,14 @@ import control.ImageHandler;
 
 public class ClearCircleEvent extends MouseAdapter {
 	private ImageHandler ih;
-	public ClearCircleEvent(ImageHandler ih){
+
+	public ClearCircleEvent(ImageHandler ih) {
 		this.ih = ih;
-		
+
 	}
-	
-	public void mousePressed(MouseEvent me){
+
+	@Override
+	public void mousePressed(MouseEvent me) {
 		super.mouseClicked(me);
 		ih.setCIRCLE_DRAWN_param(false);
 		ih.setStrokeWeight(0);

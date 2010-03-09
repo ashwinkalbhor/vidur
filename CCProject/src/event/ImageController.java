@@ -7,21 +7,19 @@ import javax.swing.event.ChangeListener;
 
 import control.ImageHandler;
 
-
-public class ImageController implements ChangeListener{
+public class ImageController implements ChangeListener {
 	private ImageHandler ih;
-	public ImageController(ImageHandler ih){
-		this.ih= ih;
+
+	public ImageController(ImageHandler ih) {
+		this.ih = ih;
 	}
-	
-	
+
 	@Override
 	public void stateChanged(ChangeEvent ce) {
-		JSlider js=(JSlider) ce.getSource();
-		ih.setScale(js.getValue()*2.0f);
+		JSlider js = (JSlider) ce.getSource();
+		ih.setScale(js.getValue() * 2.0f);
 		ih.redraw();
-		
+
 	}
-	
-	
+
 }

@@ -6,21 +6,20 @@ import javax.swing.event.ChangeListener;
 
 import control.ImageHandler;
 
-public class ImageThresholdEvent implements ChangeListener{
+public class ImageThresholdEvent implements ChangeListener {
 	private ImageHandler ih;
-	public ImageThresholdEvent(ImageHandler ih){
+
+	public ImageThresholdEvent(ImageHandler ih) {
 		this.ih = ih;
 	}
+
 	@Override
 	public void stateChanged(ChangeEvent ce) {
 		// TODO Auto-generated method stub
-		//this.stateChanged(ce);
+		// this.stateChanged(ce);
 		JSlider js = (JSlider) ce.getSource();
 		ih.setThresholdLevel(js.getValue());
 		ih.redraw();
 	}
-	
-	
-	
-	
+
 }
