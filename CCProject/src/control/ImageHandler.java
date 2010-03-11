@@ -46,11 +46,11 @@ public class ImageHandler extends PApplet {
 			}
 		}
 		
-		this.setPImage(img);
+		this.setPImage(this.img);
 		}
 		
-		image(this.img, left, top, h, w);
 		tint(r, gr, b);
+		image(this.img, this.left, this.top, this.h, this.w);
 		setStroke();
 		this.setCircleCords();
 		rect(-this.cr / 2.0f, -this.cr / 2.0f, this.cr, this.cr);
@@ -170,10 +170,18 @@ public class ImageHandler extends PApplet {
 
 	public void setDimForSubImage(PImage img, int cr) {
 		this.img = img;
+		if(this.getScaleParam(this.img.width, this.img.height)>1){
+			this.left = -150;
+			this.top = -150;
+			this.h = 300;
+			this.w = 300;
+		}
+		else{
 		this.top = -((cr / 2.0f) / this.getScaleParam(img.width, img.height)) / 2.0f;
 		this.left = -((cr / 2.0f) / this.getScaleParam(img.width, img.height)) / 2.0f;
 		this.h = (cr / 2.0f) / this.getScaleParam(img.width, img.height);
 		this.w = (cr / 2.0f) / this.getScaleParam(img.width, img.height);
+		}
 	}
 
 	public void setGreen(float gr) {

@@ -26,7 +26,7 @@ public class CountColonies {
 	public void clean(int x, int y) {
 		int a = x;
 		int b = y;
-		if (a > 1 && b > 1 && a < this.img.width - 1 && b < this.img.height - 1) {
+		if (a > 2 && b > 2 && a < this.img.width - 2 && b < this.img.height - 2) {
 			try{
 				while( b>0 && this.img.get(a , b) == -16777216){
 					while(a>0 && this.img.get(a , b) == -16777216){
@@ -82,7 +82,7 @@ public class CountColonies {
 		for (int i = 2; i < this.img.height - 2; i++) {
 			for (int j = 2; j < this.img.width - 2; j++) {
 				//System.out.println(this.img.get(i, j));
-				if (this.neighbours(i, j) > 8) {
+				if (this.neighbours(i, j) == 25) {
 					this.img.set(i, j, -1);
 					this.clean(i, j);
 					this.totalColonies++;
@@ -94,7 +94,8 @@ public class CountColonies {
 
 		}
 		this.ih.setPImage(this.img);
-		this.ih.setDimForOriginal(this.img);
+		
+		//this.ih.setDimForOriginal(this.img);
 		this.ih.redraw();
 	}
 
@@ -104,8 +105,8 @@ public class CountColonies {
 
 	public int neighbours(int a, int b) {
 		int totalPixels = 0;
-		for (int i = a - 1; i <= a + 1; i++) {
-			for (int j = b - 1; j <= b + 1; j++) {
+		for (int i = a - 2; i <= a + 2; i++) {
+			for (int j = b - 2; j <= b + 2; j++) {
 				if (this.img.get(i, j) == -16777216) {
 					totalPixels++;
 				}
