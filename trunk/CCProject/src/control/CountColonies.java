@@ -20,7 +20,7 @@ public class CountColonies {
 //			System.out.println();
 //			
 //		}
-		System.out.println(img.width+"\t"+img.height);
+		//System.out.println(img.width+"\t"+img.height);
 	}
 
 	public void clean(int x, int y) {
@@ -94,6 +94,7 @@ public class CountColonies {
 
 		}
 		this.ih.setPImage(this.img);
+		this.ih.setDimForOriginal(this.img);
 		this.ih.redraw();
 	}
 
