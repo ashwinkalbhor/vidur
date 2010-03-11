@@ -24,10 +24,15 @@ public class ProcessImageEvent extends MouseAdapter {
 		// working with images with black colonies against white background
 		// eg.Ecoli.jpg
 		super.mousePressed(me);
-		cc = new CountColonies(ih, ih.gettempImage());
+		cc = new CountColonies(ih, ih.getPImage());
 		// counter = 0;
-		// for (int i = 1; i < ih.gettempImage().height-1; i++) {
-		// for (int j = 1; j < ih.gettempImage().width-1; j++) {
+//		 for (int i = 1; i < ih.getPImage().height-1; i++) {
+//		 for (int j = 1; j < ih.getPImage().width-1; j++) {
+//			 System.out.print(ih.getPImage().get(j, i)+"\t");
+//		 }
+//		 System.out.println();
+//		 }
+//		 
 		// if(cc.count(j, i)){
 		// //ih.set(j, i, 0);
 		// counter++;
@@ -54,7 +59,7 @@ public class ProcessImageEvent extends MouseAdapter {
 		// //System.out.println(ih.gettempImage().width+"\n"+ih.gettempImage().height);
 		cc.count();
 		counter = cc.getColonyCount();
-		System.out.println(Messages.getString("ProcessImageEvent.0") + counter); //$NON-NLS-1$
+//		System.out.println(Messages.getString("ProcessImageEvent.0") + counter); //$NON-NLS-1$
 		count.setText(Messages.getString("ProcessImageEvent.1") + counter); //$NON-NLS-1$
 	}
 

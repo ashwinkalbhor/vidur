@@ -33,27 +33,32 @@ public class ImageHandler extends PApplet {
 
 		fill(100);
 		rect(0, 0, 550, 400);
-		// pushMatrix();
 		translate(width / 2, height / 2);
-		// img.filter(THRESHOLD_PARAM,level);
-		// pushMatrix();
-		// scale(sc);
+		if(this.getTHRESHOLD_PARAM()==THRESHOLD){
+		this.img.filter(THRESHOLD_PARAM, level);
+		Ellipse2D.Double ellipse = new Ellipse2D.Double(0, 0, this.img.width,
+				this.img.height);
+		for (int i = 0; i < this.img.width; i++) {
+			for (int j = 0; j < this.img.height; j++) {
+				if (!ellipse.contains(i, j)) {
+					this.img.set(i, j, -10197916);
+				}
+			}
+		}
+		
+		this.setPImage(img);
+		}
 		
 		image(this.img, left, top, h, w);
-		// popMatrix();
 		tint(r, gr, b);
 		setStroke();
 		this.setCircleCords();
 		rect(-this.cr / 2.0f, -this.cr / 2.0f, this.cr, this.cr);
 		
 		ellipse(this.cx, this.cy, this.cr, this.cr);
-		this.filter(THRESHOLD_PARAM, level);
-		
-		this.settempImage(this.get((int)left, (int)top, (int)h, (int)w));
-		// println(img.get(200,200));
-		// popMatrix();
+		this.settempImage(this.get((int)(left), (int)(top), (int)h, (int)w));
 		noFill();
-		rect(this.x - 10 - width / 2, this.y - 10 - height / 2, 20, 20);
+		//rect(this.x - 10 - width / 2, this.y - 10 - height / 2, 20, 20);
 		
 		noLoop();
 		// println(left + "\t" + top + "\t" + h + "\t" + w);
@@ -77,30 +82,30 @@ public class ImageHandler extends PApplet {
 		for (int i = 0; i < subimg.width; i++) {
 			for (int j = 0; j < subimg.height; j++) {
 				if (!ellipse.contains(i, j)) {
-					subimg.set(i, j, -1);
-				}
-				// int r = cmodel.getRed(pnum);
-				// int g = cmodel.getGreen(pnum);
-				// int b = cmodel.getBlue(pnum);
-				// System.out.println(cmodel.getRGB(pnum));
-				// if(r > 200){
-				// //System.out.println(r +"\t"+g +"\t"+b +"\t");
-				//				
-				// }else if(g > 200){
-				//				
-				// }else if(b > 200){
-				//				
-				// }
-				// pnum++;
-			}
-		}
+					subimg.set(i, j, -10197916);
+				}}}
+//				// int r = cmodel.getRed(pnum);
+//				// int g = cmodel.getGreen(pnum);
+//				// int b = cmodel.getBlue(pnum);
+//				// System.out.println(cmodel.getRGB(pnum));
+//				// if(r > 200){
+//				// //System.out.println(r +"\t"+g +"\t"+b +"\t");
+//				//				
+//				// }else if(g > 200){
+//				//				
+//				// }else if(b > 200){
+//				//				
+//				// }
+//				// pnum++;
+//			}
+//		}
 		this.setPImage(subimg);
 		this.settempImage(subimg);
 		if(this.getScaleParam(this.img.width, this.img.height)>1){
-			this.left = -this.img.width/2.0f;
-			this.top = -this.img.height/2.0f;
-			this.h = this.img.height;
-			this.w = this.img.width;
+			this.left = -150;
+			this.top = -150;
+			this.h = 300;
+			this.w = 300;
 		}
 		else
 		{
