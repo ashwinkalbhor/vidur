@@ -20,9 +20,9 @@ public class ImageControl extends JPanel {
 		GridLayout gbl = new GridLayout(2, 2);
 		this.setLayout(gbl);
 		imageScale = new JSlider(0, 100);
-		imageScale.setSize(300, 100);
+		imageScale.setSize(300, 50);
 		imageScale.setMajorTickSpacing(10);
-		imageScale.setMinorTickSpacing(1);
+		imageScale.setMinorTickSpacing(5);
 		imageScale.setPaintLabels(true);
 		imageScale.setPaintTicks(true);
 		ImageController ic = new ImageController(ih2);
@@ -30,9 +30,9 @@ public class ImageControl extends JPanel {
 		add(imageScale);
 
 		scaleRadius = new JSlider(0, 200);
-		scaleRadius.setSize(300, 100);
+		scaleRadius.setSize(300, 50);
 		scaleRadius.setMajorTickSpacing(20);
-		scaleRadius.setMinorTickSpacing(1);
+		scaleRadius.setMinorTickSpacing(10);
 		scaleRadius.setPaintLabels(true);
 		scaleRadius.setPaintTicks(true);
 		CircleController cc = new CircleController(ih1);

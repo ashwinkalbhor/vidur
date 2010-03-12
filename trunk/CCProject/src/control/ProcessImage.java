@@ -41,8 +41,8 @@ public class ProcessImage extends JPanel {
 		thresholder = new JSlider(0, 100);
 		thresholder.setLocation(10, 60);
 		thresholder.setSize(300, 50);
-		thresholder.setMajorTickSpacing(10);
-		thresholder.setMinorTickSpacing(1);
+		thresholder.setMajorTickSpacing(30);
+		thresholder.setMinorTickSpacing(3);
 		thresholder.setPaintLabels(true);
 		thresholder.setPaintTicks(true);
 		ImageThresholdEvent ite = new ImageThresholdEvent(ih);
@@ -58,8 +58,8 @@ public class ProcessImage extends JPanel {
 		dilater = new JSlider(0, 100);
 		dilater.setLocation(10, 140);
 		dilater.setSize(300, 50);
-		dilater.setMajorTickSpacing(10);
-		dilater.setMinorTickSpacing(1);
+		dilater.setMajorTickSpacing(30);
+		dilater.setMinorTickSpacing(3);
 		dilater.setPaintLabels(true);
 		dilater.setPaintTicks(true);
 		// ImageDilaterEvent ide = new ImageDilaterEvent(ih);
