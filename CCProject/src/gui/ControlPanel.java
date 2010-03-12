@@ -4,7 +4,7 @@ import event.BrowseHandler;
 import event.ClearCircleEvent;
 import event.DrawCircleEvent;
 import event.ImageTransferEvent;
-import event.LoadImageEvent;
+import event.InvertImage;
 
 import java.awt.Color;
 
@@ -23,7 +23,7 @@ public class ControlPanel extends JPanel {
 	private JTextField filePath;
 	private JButton browse;
 	private JButton transfer;
-	private JButton loadImage, drawcircle, clearcircle;
+	private JButton invert, drawcircle, clearcircle;
 
 	public ControlPanel(ImagePanel ip1, ImagePanel ip2) {
 		setBorder(BorderFactory.createLineBorder(new Color(0, 0, 0)));
@@ -58,12 +58,12 @@ public class ControlPanel extends JPanel {
 		browse.addMouseListener(BH);
 		add(browse);
 
-		loadImage = new JButton(Messages.getString("ControlPanel.2")); //$NON-NLS-1$
-		loadImage.setLocation(335, 70);
-		loadImage.setSize(100, 30);
-		loadImage.addMouseListener(new LoadImageEvent(ip1.getPApplet(), BH));
-		loadImage.setEnabled(false);
-		// add(loadImage);
+		invert = new JButton(Messages.getString("ControlPanel.2")); //$NON-NLS-1$
+		invert.setLocation(335, 70);
+		invert.setSize(100, 30);
+		invert.addMouseListener(new InvertImage(ip2.getPApplet()));
+		//invert.setEnabled(false);
+		add(invert);
 
 		transfer = new JButton(Messages.getString("ControlPanel.3")); //$NON-NLS-1$
 		transfer.setLocation(335, 110);

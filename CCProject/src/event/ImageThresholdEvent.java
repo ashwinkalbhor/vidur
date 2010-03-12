@@ -16,7 +16,6 @@ public class ImageThresholdEvent implements ChangeListener {
 	@Override
 	public void stateChanged(ChangeEvent ce) {
 		// TODO Auto-generated method stub
-		// this.stateChanged(ce);
 		JSlider js = (JSlider) ce.getSource();
 		ih.setThresholdLevel(js.getValue());
 		ih.redraw();

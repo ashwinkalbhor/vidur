@@ -24,9 +24,9 @@ public class ColorControl extends JPanel {
 		GridLayout gbl = new GridLayout(3, 2);
 		this.setLayout(gbl);
 		ControlRed = new JSlider(0, 255);
-		ControlRed.setSize(300, 100);
-		ControlRed.setMajorTickSpacing(50);
-		ControlRed.setMinorTickSpacing(1);
+		ControlRed.setSize(300, 50);
+		ControlRed.setMajorTickSpacing(64);
+		ControlRed.setMinorTickSpacing(16);
 		ControlRed.setPaintLabels(true);
 		ControlRed.setPaintTicks(true);
 		red = new JLabel();
@@ -41,9 +41,9 @@ public class ColorControl extends JPanel {
 		add(red);
 
 		ControlGreen = new JSlider(0, 255);
-		ControlGreen.setSize(300, 100);
-		ControlGreen.setMajorTickSpacing(50);
-		ControlGreen.setMinorTickSpacing(1);
+		ControlGreen.setSize(300, 50);
+		ControlGreen.setMajorTickSpacing(64);
+		ControlGreen.setMinorTickSpacing(16);
 		ControlGreen.setPaintLabels(true);
 		ControlGreen.setPaintTicks(true);
 		green = new JLabel();
@@ -58,9 +58,9 @@ public class ColorControl extends JPanel {
 		add(green);
 
 		ControlBlue = new JSlider(0, 255);
-		ControlBlue.setSize(300, 100);
-		ControlBlue.setMajorTickSpacing(50);
-		ControlBlue.setMinorTickSpacing(1);
+		ControlBlue.setSize(300, 50);
+		ControlBlue.setMajorTickSpacing(64);
+		ControlBlue.setMinorTickSpacing(16);
 		ControlBlue.setPaintLabels(true);
 		ControlBlue.setPaintTicks(true);
 		blue = new JLabel();

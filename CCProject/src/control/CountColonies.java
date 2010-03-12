@@ -41,12 +41,13 @@ public class CountColonies {
 					b--;
 				}
 				b=y+1;
+				a=x;
 				while(b < this.img.height - 1 && this.img.get(a , b) == -16777216){
 					while(a>0 && this.img.get(a , b) == -16777216){
 						this.img.set(a , b, -1);
 						a--;
 					}
-					a=x;
+					a=x+1;
 					while(a < this.img.width - 1 && this.img.get(a , b) == -16777216){
 						this.img.set(a , b, -1);
 						a++;
@@ -98,7 +99,6 @@ public class CountColonies {
 		//this.ih.setDimForOriginal(this.img);
 		this.ih.redraw();
 	}
-
 	public int getColonyCount() {
 		return this.totalColonies;
 	}
