@@ -14,8 +14,8 @@ public class Main {
 	public static void main(String[] args) {
 		try {
 			UIManager.setLookAndFeel(Messages.getString("Main.0")); //$NON-NLS-1$
-			// Toolkit toolkit = Toolkit.getDefaultToolkit();
-			// Dimension scrnsize = toolkit.getScreenSize();
+//			 Toolkit toolkit = Toolkit.getDefaultToolkit();
+//			 Dimension scrnsize = toolkit.getScreenSize();
 			setGUI(1200, 750);
 		}
 
