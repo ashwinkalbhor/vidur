@@ -33,48 +33,45 @@ public class ImageHandler extends PApplet {
 
 		fill(100);
 		rect(0, 0, 550, 400);
+		
 		translate(width / 2, height / 2);
-		if(this.getTHRESHOLD_PARAM()==THRESHOLD){
-		this.img.filter(THRESHOLD_PARAM, level);
+		if(getTHRESHOLD_PARAM()==THRESHOLD){
+		img.filter(THRESHOLD_PARAM, level);
 		Ellipse2D.Double ellipse = new Ellipse2D.Double(0, 0, this.img.width,
-				this.img.height);
-		for (int i = 0; i < this.img.width; i++) {
+				img.height);
+		for (int i = 0; i < img.width; i++) {
 			for (int j = 0; j < this.img.height; j++) {
 				if (!ellipse.contains(i, j)) {
-					this.img.set(i, j, -10197916);
+					img.set(i, j, -10197916);
 				}
 			}
 		}
 		
-		this.setPImage(this.img);
+		setPImage(img);
 		}
 		
 		tint(r, gr, b);
-		image(this.img, this.left, this.top, this.h, this.w);
+		image(img,left, top, h, w);
 		setStroke();
-		this.setCircleCords();
-		rect(-this.cr / 2.0f, -this.cr / 2.0f, this.cr, this.cr);
-		
-		ellipse(this.cx, this.cy, this.cr, this.cr);
-		this.settempImage(this.get((int)(left), (int)(top), (int)h, (int)w));
+		settempImage(get((int)(left), (int)(top), (int)h, (int)w));
+		rect(cx-cr / 2.0f, cy-cr / 2.0f, cr, cr);
+		ellipse(cx, cy, cr, cr);
 		noFill();
-		//rect(this.x - 10 - width / 2, this.y - 10 - height / 2, 20, 20);
-		
 		noLoop();
-		// println(left + "\t" + top + "\t" + h + "\t" + w);
 	}
 
-	public void drawRects(int x, int y) {
-		this.setStrokeWeight(255);
-		this.x = x - height / 2;
-		this.y = y - width / 2;
-	}
+//	public void drawRects(int x, int y) {
+//		this.setStrokeWeight(255);
+//		this.x = x - height / 2;
+//		this.y = y - width / 2;
+//	}
 
-	public void drawSubImage(PImage im) {
-		this.subimg = new PImage((int) this.w, (int) this.h);
-		this.subimg.copy(im, im.width / 2 - (int) this.w, im.height / 2
-				- (int) this.h, 2 * (int) this.w, 2 * (int) this.h, 0, 0,
-				(int) this.w, (int) this.h);
+	public void drawSubImage(PImage im,int x,int y,int rad) {
+		int ImX = (int) (((((im.width/2)+x/getScaleParam(im.width,im.height))))-((rad/2.0f)/getScaleParam(im.width,im.height)));
+		int ImY = (int) (((((im.height/2)+y/getScaleParam(im.width,im.height))))-((rad/2.0f)/getScaleParam(im.width,im.height)));
+		subimg = new PImage((int)(rad/getScaleParam(im.width,im.height)),(int)(rad/getScaleParam(im.width,im.height)));
+		subimg.copy(im, ImX,ImY, (int)(rad/getScaleParam(im.width,im.height)),(int)(rad/getScaleParam(im.width,im.height)), 0, 0,
+				(int)(rad/getScaleParam(im.width,im.height)),(int)(rad/getScaleParam(im.width,im.height)));
 		Ellipse2D.Double ellipse = new Ellipse2D.Double(0, 0, subimg.width,
 				subimg.height);
 		// BufferedImage bimage = (BufferedImage) subimg.getImage();
@@ -111,7 +108,7 @@ public class ImageHandler extends PApplet {
 		{
 		this.setDimForOriginal(this.img);
 		}
-		println("left = "+this.left+"\n"+"top = "+this.top+"\n"+"w = "+this.w+"\n"+"h = "+this.h+"\n");
+		//println("left = "+left+"\n"+"top = "+top+"\n"+"w = "+w+"\n"+"h = "+h+"\n");
 	}
 
 	public boolean getCIRCLE_DRAWN_param() {
@@ -146,7 +143,15 @@ public class ImageHandler extends PApplet {
 	public int getTHRESHOLD_PARAM() {
 		return THRESHOLD_PARAM;
 	}
-
+	
+	public int getX(){
+		return this.cx;
+	}
+	
+	public int getY(){
+		return this.cy;
+	}
+	
 	public void setBlue(float b) {
 		this.b = b;
 	}
@@ -160,27 +165,27 @@ public class ImageHandler extends PApplet {
 	}
 
 	public void setDimForOriginal(PImage img) {
-		this.left = -img.width * this.getScaleParam(img.width, img.height)
+		left = -img.width * getScaleParam(img.width, img.height)
 				/ 2.0f;
-		this.top = -img.height * this.getScaleParam(img.width, img.height)
+		top = -img.height * getScaleParam(img.width, img.height)
 				/ 2.0f;
-		this.h = img.width * this.getScaleParam(img.width, img.height);
-		this.w = img.height * this.getScaleParam(img.width, img.height);
+		h = img.width * getScaleParam(img.width, img.height);
+		w = img.height * getScaleParam(img.width, img.height);
 	}
 
 	public void setDimForSubImage(PImage img, int cr) {
-		this.img = img;
-		if(this.getScaleParam(this.img.width, this.img.height)>1){
-			this.left = -150;
-			this.top = -150;
-			this.h = 300;
-			this.w = 300;
+		
+		if(getScaleParam(img.width, img.height)>1){
+			left = -150;
+			top = -150;
+			h = 300;
+			w = 300;
 		}
 		else{
-		this.top = -((cr / 2.0f) / this.getScaleParam(img.width, img.height)) / 2.0f;
-		this.left = -((cr / 2.0f) / this.getScaleParam(img.width, img.height)) / 2.0f;
-		this.h = (cr / 2.0f) / this.getScaleParam(img.width, img.height);
-		this.w = (cr / 2.0f) / this.getScaleParam(img.width, img.height);
+		top = -((cr/2.0f) / getScaleParam(img.width, img.height)) / 2.0f;
+		left = -((cr/2.0f) / getScaleParam(img.width, img.height)) / 2.0f;
+		h = (cr/2.0f) / getScaleParam(img.width, img.height);
+		w = (cr/2.0f) / getScaleParam(img.width, img.height);
 		}
 	}
 
@@ -232,16 +237,16 @@ public class ImageHandler extends PApplet {
 		this.level = (float) level / 100;
 	}
 	
-	public void setCircleCords(){
-		if(this.getCIRCLE_DRAWN_param()){
-			if(mousePressed){
-				this.setX(mouseX);
-				this.setY(mouseY);
-				println(this.cx);println(this.cy);
-				this.redraw();
-			}
-		}
-	}
+//	public void setCircleCords(){
+//		if(this.getCIRCLE_DRAWN_param()){
+//			if(mousePressed){
+//				this.setX(mouseX);
+//				this.setY(mouseY);
+//				println(this.cx);println(this.cy);
+//				this.redraw();
+//			}
+//		}
+//	}
 	
 	public void setX(int cx){
 		this.cx = cx-this.width/2;
@@ -258,5 +263,15 @@ public class ImageHandler extends PApplet {
 		size(550, 400);
 		img = new PImage();
 		smooth();
+	}
+	
+	public void mouseDragged(){
+		if(this.getCIRCLE_DRAWN_param()){
+		setX(mouseX);
+		setY(mouseY);
+		
+		println("hello"+"\t"+this.cx+"\t"+this.cy);
+		}
+		redraw();
 	}
 }
