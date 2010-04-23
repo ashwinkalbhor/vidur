@@ -1,6 +1,5 @@
 package gui.events;
 
-//~--- JDK imports ------------------------------------------------------------
 
 import java.io.File;
 
@@ -37,6 +36,3 @@ public class FilterFile extends FileFilter {
         return description;
     }
 }
-
-
-//~ Formatted by Jindent --- http://www.jindent.com

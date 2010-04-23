@@ -11,7 +11,7 @@ public class ClearCircleEvent extends MouseAdapter {
     private ImageHandler imageHandler;
 
     public ClearCircleEvent(HandleImage handleImage) {
-        this.imageHandler = (ImageHandler)handleImage;
+        imageHandler = (ImageHandler)handleImage;
     }
 
     @Override

@@ -1,10 +1,5 @@
 package gui.control;
 
-//~--- non-JDK imports --------------------------------------------------------
-
-
-//~--- JDK imports ------------------------------------------------------------
-
 import image.control.HandleImage;
 import image.control.ImageHandler;
 
@@ -20,7 +15,7 @@ import javax.swing.JPanel;
  */
 public class ImagePanel extends JPanel {
     private static final long serialVersionUID = 4756979408320177070L;
-    private ImageHandler      imageHandler;
+    private ImageHandler imageHandler;
 
     /**
      * Constructor to initialize PApplet object for givrn File Path.

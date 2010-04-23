@@ -1,10 +1,10 @@
 package gui.control;
 
 
-import gui.Messages;
 import gui.events.BrowseHandler;
 import gui.events.ClearCircleEvent;
 import gui.events.DrawCircleEvent;
+import gui.events.Messages;
 
 
 import image.control.CalculateControl;
@@ -38,8 +38,10 @@ public class ControlPanel extends JPanel {
         filePath.setSize(300, 30);
         add(filePath);
 
-        BrowseHandler BH           = new BrowseHandler(filePath, imagePanel1, imagePanel2);
-        ColorControl  colorControl = new ColorControl(imagePanel2.getImageHandler());
+        BrowseHandler browseHandler =
+        new BrowseHandler(filePath, imagePanel1, imagePanel2);
+        ColorControl  colorControl =
+        new ColorControl(imagePanel2.getImageHandler());
 
         colorControl.setBounds(10, 70, 300, 180);
         add(colorControl);
@@ -51,19 +53,19 @@ public class ControlPanel extends JPanel {
         add(imageControl);
 
         CalculateControl calculate = new CalculateControl(imagePanel2
-        .getPApplet());
+        .getImageHandler());
 
         calculate.setBounds(800, 140, 300, 100);
         add(calculate);
 
-        ProcessImage pi = new ProcessImage(imagePanel2.getImageHandler());
+        ProcessImage processImage = new ProcessImage(imagePanel2.getImageHandler());
 
-        pi.setBounds(460, 10, 320, 200);
-        add(pi);
+        processImage.setBounds(460, 10, 320, 200);
+        add(processImage);
         browse = new JButton(Messages.getString("ControlPanel.1"));    // $NON-NLS-1$
         browse.setLocation(335, 30);
         browse.setSize(100, 30);
-        browse.addMouseListener(BH);
+        browse.addMouseListener(browseHandler);
         add(browse);
         invert = new JButton(Messages.getString("ControlPanel.2"));    // $NON-NLS-1$
         invert.setLocation(335, 70);
@@ -72,24 +74,26 @@ public class ControlPanel extends JPanel {
 
         // invert.setEnabled(false);
         add(invert);
-        transfer = new JButton(Messages.getString("ControlPanel.3"));    // $NON-NLS-1$
+        transfer = new JButton(Messages.getString("ControlPanel.3"));
         transfer.setLocation(335, 110);
         transfer.setSize(100, 30);
 
-        ImageTransferEvent ite = new ImageTransferEvent(imagePanel1.getPApplet(), imagePanel2.getPApplet());
+        ImageTransferEvent imageTransferEvent =
+        new ImageTransferEvent(imagePanel1.getImageHandler(),
+        		imagePanel2.getImageHandler());
 
-        transfer.addMouseListener(ite);
+        transfer.addMouseListener(imageTransferEvent);
         add(transfer);
-        drawcircle = new JButton(Messages.getString("ControlPanel.4"));    // $NON-NLS-1$
+        drawcircle = new JButton(Messages.getString("ControlPanel.4"));
         drawcircle.setLocation(335, 150);
         drawcircle.setSize(100, 30);
 
         DrawCircleEvent dce = new DrawCircleEvent(imagePanel1.getPApplet(),
-                                  new ImageColorController(imagePanel2.getImageHandler()));
+              new ImageColorController(imagePanel2.getImageHandler()));
 
         drawcircle.addMouseListener(dce);
         add(drawcircle);
-        clearcircle = new JButton(Messages.getString("ControlPanel.5"));    // $NON-NLS-1$
+        clearcircle = new JButton(Messages.getString("ControlPanel.5"));
         clearcircle.setLocation(335, 190);
         clearcircle.setSize(100, 30);
 

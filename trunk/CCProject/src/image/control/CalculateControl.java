@@ -1,8 +1,5 @@
 package image.control;
 
-
-//import gui.Messages;
-
 import gui.events.Messages;
 
 import java.awt.Color;
