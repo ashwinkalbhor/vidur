@@ -1,6 +1,6 @@
 package logic.control;
 
-import gui.Messages;
+import gui.events.Messages;
 import image.control.HandleImage;
 import image.control.ImageColorController;
 import image.events.ImageThresholdEvent;
@@ -30,12 +30,12 @@ public class ProcessImage extends JPanel {
 
         setBorder(BorderFactory.createLineBorder(new Color(0, 0, 0)));
         setLayout(null);
-        Processor = new JLabel(Messages.getString("ProcessImage.0"));    // $NON-NLS-1$
+        Processor = new JLabel(Messages.getString("ProcessImage.0"));
         Processor.setSize(120, 20);
         Processor.setLocation(10, 10);
-        Processor.setName(Messages.getString("ProcessImage.1"));    // $NON-NLS-1$
+        Processor.setName(Messages.getString("ProcessImage.1"));
         add(Processor);
-        Threshold = new JLabel(Messages.getString("ProcessImage.2"));    // $NON-NLS-1$
+        Threshold = new JLabel(Messages.getString("ProcessImage.2"));
         Threshold.setSize(80, 20);
         Threshold.setLocation(10, 35);
         Threshold.setLabelFor(thresholder);
@@ -48,11 +48,12 @@ public class ProcessImage extends JPanel {
         thresholder.setPaintLabels(true);
         thresholder.setPaintTicks(true);
 
-        ImageThresholdEvent ite = new ImageThresholdEvent(handleImage, new ImageColorController(handleImage));
+        ImageThresholdEvent imageThresholdEvent = new ImageThresholdEvent(handleImage,
+        new ImageColorController(handleImage));
 
-        thresholder.addChangeListener(ite);
+        thresholder.addChangeListener(imageThresholdEvent);
         add(thresholder);
-        Dilate = new JLabel(Messages.getString("ProcessImage.3"));    // $NON-NLS-1$
+        Dilate = new JLabel(Messages.getString("ProcessImage.3"));
         Dilate.setSize(50, 20);
         Dilate.setLocation(10, 115);
         Dilate.setLabelFor(dilater);

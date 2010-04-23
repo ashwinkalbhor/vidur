@@ -21,8 +21,11 @@ public class ImageTransferEvent extends MouseAdapter {
         handleImage2.setThresholdParam();
 
         if (handleImage1.getCircleDrawnParam()) {
-            handleImage2.setDimForSubImage(handleImage1.getPImage(), handleImage1.getCircleRadius());
-            handleImage2.drawSubImage(handleImage1.getPImage(), handleImage1.getX(), handleImage1.getY(), handleImage1.getCircleRadius());
+            handleImage2.setDimForSubImage(handleImage1.getPImage(),
+            handleImage1.getCircleRadius());
+            handleImage2.drawSubImage(handleImage1.getPImage(),
+            handleImage1.getX(), handleImage1.getY(), handleImage1
+            .getCircleRadius());
             handleImage2.redraw();
         }
     }

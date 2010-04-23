@@ -5,7 +5,11 @@ import processing.core.PApplet;
 import processing.core.PImage;
 
 public class ImageColorController extends PApplet {
-    private int     Threshold = 0;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private int     Threshold = 0;
     private int     blue               = 0;
     private int     green               = 0;
     private float   ThresholdLevel           = 1.0f;
@@ -26,15 +30,17 @@ public class ImageColorController extends PApplet {
     @Override
 	public void draw() {
     	imageHandler.tint(red, green, blue);
-    	imageHandler.image(imageHandler.getPImage(), 0, 0, imageHandler.getPImage().width,
+    	imageHandler.image(imageHandler.getPImage(),
+    	0, 0, imageHandler.getPImage().width,
         		imageHandler.getPImage().height);
 
         if (CircleDrawn) {
         	imageHandler.filter(Threshold, ThresholdLevel);
         }
 
-        imageHandler.setPImage(imageHandler.get(0, 0, imageHandler.getPImage().width,
-        		imageHandler.getPImage().height));
+        imageHandler.setPImage(imageHandler
+        .get(0, 0, imageHandler.getPImage().width,
+        imageHandler.getPImage().height));
         imageHandler.noLoop();
     }
 

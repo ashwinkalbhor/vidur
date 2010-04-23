@@ -1,7 +1,5 @@
 package image.control;
 
-//~--- non-JDK imports --------------------------------------------------------
-
 import gui.events.CircleController;
 
 import java.awt.Color;
@@ -22,7 +20,7 @@ public class ImageControl extends JPanel {
 
         GridLayout gbl = new GridLayout(2, 2);
 
-        this.setLayout(gbl);
+        //this.setLayout(gbl);
 
 //      imageScale = new JSlider(0, 100);
 //      imageScale.setSize(300, 50);
@@ -45,12 +43,9 @@ public class ImageControl extends JPanel {
         scaleRadius.setPaintLabels(true);
         scaleRadius.setPaintTicks(true);
 
-        CircleController cc = new CircleController(ih1);
+        CircleController cc = new CircleController(handleImage1);
 
         scaleRadius.addChangeListener(cc);
         add(scaleRadius);
     }
 }
-
-
-//~ Formatted by Jindent --- http://www.jindent.com

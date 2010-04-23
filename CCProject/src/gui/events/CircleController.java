@@ -1,6 +1,7 @@
 package gui.events;
 
 
+import image.control.HandleImage;
 import image.control.ImageHandler;
 import javax.swing.JSlider;
 import javax.swing.event.ChangeEvent;
@@ -14,17 +15,16 @@ public class CircleController implements ChangeListener {
     private ImageHandler imageHandler;
     /**
      * Constructor for CircleController class.
-     * @param ih : Receives object ImageHandler class. 
+     * @param handleImage : Receives object ImageHandler class.
      */
-    public CircleController(ImageHandler ih) {
-        imageHandler = ih;
+    public CircleController(HandleImage handleImage) {
+        imageHandler = (ImageHandler) handleImage;
     }
 
     @Override
     public void stateChanged(ChangeEvent ce) {
         JSlider jSlider = (JSlider) ce.getSource();
 
-        // System.out.println(js.getValue());
         imageHandler.setCircleRadius(jSlider.getValue() * 2.0f);
         imageHandler.redraw();
     }

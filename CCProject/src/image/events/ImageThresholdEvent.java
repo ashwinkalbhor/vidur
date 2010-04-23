@@ -29,12 +29,12 @@ public class ImageThresholdEvent implements ChangeListener {
     public final void stateChanged(final ChangeEvent ce) {
 
         // TODO Auto-generated method stub
-        JSlider js = (JSlider) ce.getSource();
+        JSlider jSlider = (JSlider) ce.getSource();
 
-        imageColorController.setThresholdLevel(js.getValue());
+        imageColorController.setThresholdLevel(jSlider.getValue());
         imageColorController.redraw();
         handleImage.setPImage(handleImage.getPImage());
-        handleImage.setThresholdLevel(js.getValue());
+        handleImage.setThresholdLevel(jSlider.getValue());
         handleImage.redraw();
     }
 }
