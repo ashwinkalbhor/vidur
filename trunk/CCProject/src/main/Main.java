@@ -12,7 +12,7 @@ import javax.swing.UIManager;
 public class Main {
     public static void main(final String[] args) {
         try {
-            UIManager.setLookAndFeel(Messages.getString("Main.0"));    // $NON-NLS-1$
+            UIManager.setLookAndFeel(Messages.getString("Main.0"));
 
             //Toolkit   toolkit  = Toolkit.getDefaultToolkit();
             //Dimension scrnsize = toolkit.getScreenSize();
