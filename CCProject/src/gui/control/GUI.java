@@ -2,7 +2,9 @@ package gui.control;
 
 //~--- JDK imports ------------------------------------------------------------
 
-import gui.Messages;
+
+
+import gui.events.Messages;
 
 import java.awt.Dimension;
 
@@ -10,30 +12,28 @@ import javax.swing.JFrame;
 
 public class GUI extends JFrame {
     private static final long serialVersionUID = -591008432209644219L;
-    private String            s                = Messages.getString("GUI.0");    // $NON-NLS-1$
+    private String            path                = Messages.getString("GUI.0");    // $NON-NLS-1$
 
     public GUI(String frameName, int width, int height) {
         super(frameName);
 
-        Dimension d = super.getSize();
+        Dimension dimension = super.getSize();
 
         // System.out.println(d.height);
-        ImagePanel ip1 = new ImagePanel(s);
+        ImagePanel imagePanel1 = new ImagePanel(path);
 
-        ip1.setBounds(20, 20, 550, 400);
-        this.add(ip1);
+        imagePanel1.setBounds(20, 20, 550, 400);
+        this.add(imagePanel1);
 
-        ImagePanel ip2 = new ImagePanel(s);
+        ImagePanel imagePanel2 = new ImagePanel(path);
 
-        ip2.setBounds(600, 20, 550, 400);
-        this.add(ip2);
+        imagePanel2.setBounds(600, 20, 550, 400);
+        this.add(imagePanel2);
 
-        ControlPanel controlPanel = new ControlPanel(ip1, ip2);
+        ControlPanel controlPanel = new ControlPanel(imagePanel1, imagePanel2);
 
         controlPanel.setBounds(20, 450, 1150, 260);
         add(controlPanel);
     }
 }
 
-
-//~ Formatted by Jindent --- http://www.jindent.com

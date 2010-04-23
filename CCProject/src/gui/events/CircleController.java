@@ -1,31 +1,31 @@
 package gui.events;
 
-//~--- non-JDK imports --------------------------------------------------------
 
 import image.control.ImageHandler;
-
-//~--- JDK imports ------------------------------------------------------------
-
 import javax.swing.JSlider;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-
+/**
+ * Class to control the circle size.
+ * @author ASHWIN
+ *
+ */
 public class CircleController implements ChangeListener {
-    private ImageHandler ih;
-
+    private ImageHandler imageHandler;
+    /**
+     * Constructor for CircleController class.
+     * @param ih : Receives object ImageHandler class. 
+     */
     public CircleController(ImageHandler ih) {
-        this.ih = ih;
+        imageHandler = ih;
     }
 
     @Override
     public void stateChanged(ChangeEvent ce) {
-        JSlider js = (JSlider) ce.getSource();
+        JSlider jSlider = (JSlider) ce.getSource();
 
         // System.out.println(js.getValue());
-        ih.setCircleRadius(js.getValue() * 2.0f);
-        ih.redraw();
+        imageHandler.setCircleRadius(jSlider.getValue() * 2.0f);
+        imageHandler.redraw();
     }
 }
-
-
-//~ Formatted by Jindent --- http://www.jindent.com

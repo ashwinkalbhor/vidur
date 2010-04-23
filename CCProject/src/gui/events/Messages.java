@@ -1,6 +1,5 @@
 package gui.events;
 
-//~--- JDK imports ------------------------------------------------------------
 
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
@@ -20,5 +19,3 @@ public class Messages {
     }
 }
 
-
-//~ Formatted by Jindent --- http://www.jindent.com
