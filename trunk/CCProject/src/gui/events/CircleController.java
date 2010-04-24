@@ -17,7 +17,7 @@ public class CircleController implements ChangeListener {
      * Constructor for CircleController class.
      * @param handleImage : Receives object ImageHandler class.
      */
-    public CircleController(HandleImage handleImage) {
+    public CircleController(ImageHandler handleImage) {
         imageHandler = (ImageHandler) handleImage;
     }
 

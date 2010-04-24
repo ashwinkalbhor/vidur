@@ -1,8 +1,8 @@
 package logic.control;
 
-import gui.events.Messages;
 import image.control.HandleImage;
 import image.control.ImageColorController;
+import image.control.ImageHandler;
 import image.events.ImageThresholdEvent;
 
 import java.awt.Color;
@@ -26,16 +26,16 @@ public class ProcessImage extends JPanel {
 
     private JSlider thresholder;
 
-    public ProcessImage(HandleImage handleImage) {
+    public ProcessImage(ImageHandler handleImage) {
 
         setBorder(BorderFactory.createLineBorder(new Color(0, 0, 0)));
         setLayout(null);
-        Processor = new JLabel(Messages.getString("ProcessImage.0"));
+        Processor = new JLabel("Processor");
         Processor.setSize(120, 20);
         Processor.setLocation(10, 10);
-        Processor.setName(Messages.getString("ProcessImage.1"));
+        Processor.setName("Processor");
         add(Processor);
-        Threshold = new JLabel(Messages.getString("ProcessImage.2"));
+        Threshold = new JLabel("Threshold");
         Threshold.setSize(80, 20);
         Threshold.setLocation(10, 35);
         Threshold.setLabelFor(thresholder);
@@ -53,7 +53,7 @@ public class ProcessImage extends JPanel {
 
         thresholder.addChangeListener(imageThresholdEvent);
         add(thresholder);
-        Dilate = new JLabel(Messages.getString("ProcessImage.3"));
+        Dilate = new JLabel("Dilater");
         Dilate.setSize(50, 20);
         Dilate.setLocation(10, 115);
         Dilate.setLabelFor(dilater);

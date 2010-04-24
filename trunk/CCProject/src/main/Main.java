@@ -12,8 +12,8 @@ import javax.swing.UIManager;
 public class Main {
     public static void main(final String[] args) {
         try {
-            UIManager.setLookAndFeel(Messages.getString("Main.0"));
-
+            UIManager.setLookAndFeel("com.jtattoo.plaf.luna.LunaLookAndFeel");
+            //System.out.println("hello\n");
             //Toolkit   toolkit  = Toolkit.getDefaultToolkit();
             //Dimension scrnsize = toolkit.getScreenSize();
             setGUI(1200, 750);
@@ -24,7 +24,7 @@ public class Main {
     }
 
     public static void setGUI(final int width, final int height) {
-        GUI displayGUI = new GUI(Messages.getString("Main.1"), width, height);    // $NON-NLS-1$
+        GUI displayGUI = new GUI("ColonyCounter", width, height);
 
         displayGUI.setSize(width, height);
         displayGUI.setResizable(true);

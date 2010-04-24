@@ -1,6 +1,5 @@
 package image.control;
 
-import gui.events.Messages;
 import image.events.ColorController;
 
 import java.awt.Color;
@@ -21,7 +20,7 @@ public class ColorControl extends JPanel {
     private JLabel            green;
     private JLabel            red;
 
-    public ColorControl(HandleImage handleImage) {
+    public ColorControl(ImageHandler handleImage) {
         setBorder(BorderFactory.createLineBorder(new Color(0, 0, 0)));
 
         GridLayout gbl = new GridLayout(3, 2);
@@ -35,12 +34,12 @@ public class ColorControl extends JPanel {
         ControlRed.setPaintTicks(true);
         red = new JLabel();
         red.setSize(50, 30);
-        red.setText(Messages.getString("ColorControl.0"));    // $NON-NLS-1$
+        red.setText("Red");
         red.setBackground(new Color(255, 0, 0));
         red.setLabelFor(ControlRed);
         red.setForeground(new Color(255, 0, 0));
 
-        ColorController redCol = new ColorController(imageHandler, red);
+        ColorController redCol = new ColorController(handleImage, red);
 
         ControlRed.addChangeListener(redCol);
         add(ControlRed);
@@ -54,12 +53,12 @@ public class ColorControl extends JPanel {
         ControlGreen.setPaintTicks(true);
         green = new JLabel();
         green.setSize(50, 30);
-        green.setText(Messages.getString("ColorControl.1"));    // $NON-NLS-1$
+        green.setText("Green");
         green.setBackground(new Color(255, 200, 20));
         green.setLabelFor(ControlGreen);
         green.setForeground(new Color(0, 255, 0));
 
-        ColorController greenCol = new ColorController(imageHandler, green);
+        ColorController greenCol = new ColorController(handleImage, green);
 
         ControlGreen.addChangeListener(greenCol);
         add(ControlGreen);
@@ -73,12 +72,12 @@ public class ColorControl extends JPanel {
         ControlBlue.setPaintTicks(true);
         blue = new JLabel();
         blue.setSize(50, 30);
-        blue.setText(Messages.getString("ColorControl.2"));    // $NON-NLS-1$
+        blue.setText("Blue");
         blue.setBackground(new Color(255, 200, 20));
         blue.setLabelFor(ControlBlue);
         blue.setForeground(new Color(0, 0, 255));
 
-        ColorController blueCol = new ColorController(imageHandler, blue);
+        ColorController blueCol = new ColorController(handleImage, blue);
 
         ControlBlue.addChangeListener(blueCol);
         add(ControlBlue);

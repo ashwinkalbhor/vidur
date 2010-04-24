@@ -11,8 +11,8 @@ import java.awt.event.MouseEvent;
 public class DrawCircleEvent extends MouseAdapter {
     private ImageColorController imageColorController;
     private ImageHandler         imageHandler;
-
-    public DrawCircleEvent(HandleImage handleImage, ImageColorController icc) {
+    private int strokeWeight = 255;
+    public DrawCircleEvent(ImageHandler handleImage, ImageColorController icc) {
         this.imageHandler  = (ImageHandler)handleImage;
         this.imageColorController = icc;
     }
@@ -20,7 +20,7 @@ public class DrawCircleEvent extends MouseAdapter {
     @Override
     public void mousePressed(MouseEvent me) {
         super.mousePressed(me);
-        imageHandler.setStrokeWeight(255);
+        imageHandler.setStrokeWeight(strokeWeight);
         imageHandler.isCircleDrawn(true);
         imageColorController.isCircleDrawn(true);
         imageColorController.redraw();

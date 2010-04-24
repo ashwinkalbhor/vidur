@@ -2,6 +2,7 @@ package image.events;
 
 import image.control.HandleImage;
 import image.control.ImageColorController;
+import image.control.ImageHandler;
 
 import javax.swing.JSlider;
 import javax.swing.event.ChangeEvent;
@@ -18,9 +19,10 @@ public class ImageThresholdEvent implements ChangeListener {
     /**
      * @param ImageHandling
      */
-    private HandleImage handleImage;
+    private ImageHandler handleImage;
 
-    public ImageThresholdEvent(HandleImage handleImage, ImageColorController imageColorController) {
+    public ImageThresholdEvent(ImageHandler handleImage,
+    ImageColorController imageColorController) {
         this.handleImage  = handleImage;
         this.imageColorController = imageColorController;
     }

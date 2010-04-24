@@ -18,19 +18,21 @@ public class ImagePanel extends JPanel {
     private ImageHandler imageHandler;
 
     /**
-     * Constructor to initialize PApplet object for givrn File Path.
+     * Constructor to initialize PApplet object for given File Path.
      * @param path : It takes Image File path as argument.
      */
     public ImagePanel(String path) {
         setBorder(BorderFactory.createLineBorder(new Color(0, 0, 0)));
         setLayout(null);
         imageHandler = new ImageHandler(path);
+        imageHandler.setSize(550, 400);
         add(imageHandler);
         imageHandler.init();
-        imageHandler.setSize(550, 400);
+        
+        
     }
 
-    public HandleImage getPApplet() {
+    public ImageHandler getPApplet() {
         return imageHandler;
     }
 
@@ -39,7 +41,7 @@ public class ImagePanel extends JPanel {
      * @return : It returns object of Image Handling class.
      */
     public HandleImage getImageHandler() {
-        return imageHandler;
+        return (HandleImage)imageHandler;
     }
 
     public void setImageHandler(ImageHandler imageHandler) {

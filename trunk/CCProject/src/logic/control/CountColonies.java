@@ -28,6 +28,8 @@ public class CountColonies {
      * Contructor of class CountColonies.
      */
     public CountColonies(PImage img) {
+    	//this.img = new PImage();
+    	//this.img.copy(img,0, 0, img.width, img.height, 0, 0, img.width, img.height);
     	setPImage(img);
     	count(img);
     }
