@@ -18,8 +18,8 @@ public class ImageColorController extends PApplet {
     private PImage  img;
     private ImageHandler imageHandler;
 
-    public ImageColorController(HandleImage handleImage) {
-        imageHandler = (ImageHandler)handleImage;
+    public ImageColorController(ImageHandler handleImage) {
+        imageHandler = handleImage;
     }
 
     @Override
@@ -69,12 +69,12 @@ public class ImageColorController extends PApplet {
     }
 
     public void setThreshold() {
-        this.Threshold = 0;
+        Threshold = 0;
     }
 
     public void setThresholdLevel(int level) {
-        this.Threshold = THRESHOLD;
-        this.ThresholdLevel           = (float) level / 100;
+        Threshold = THRESHOLD;
+        ThresholdLevel           = (float) level / 100;
     }
 
     public void isCircleDrawn(boolean cdp) {

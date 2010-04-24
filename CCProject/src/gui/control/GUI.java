@@ -1,25 +1,19 @@
 package gui.control;
 
-//~--- JDK imports ------------------------------------------------------------
-
-
-
-import gui.events.Messages;
-
-import java.awt.Dimension;
+//import java.awt.Dimension;
 
 import javax.swing.JFrame;
 
 public class GUI extends JFrame {
     private static final long serialVersionUID = -591008432209644219L;
-    private String            path                = Messages.getString("GUI.0");    // $NON-NLS-1$
+    private String            path                = "data/Images";
 
     public GUI(String frameName, int width, int height) {
         super(frameName);
 
-        Dimension dimension = super.getSize();
+        //Dimension dimension = super.getSize();
 
-        // System.out.println(d.height);
+         //System.out.println("hello");
         ImagePanel imagePanel1 = new ImagePanel(path);
 
         imagePanel1.setBounds(20, 20, 550, 400);

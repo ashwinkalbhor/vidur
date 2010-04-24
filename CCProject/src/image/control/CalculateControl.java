@@ -1,7 +1,5 @@
 package image.control;
 
-import gui.events.Messages;
-
 import java.awt.Color;
 import java.awt.GridLayout;
 
@@ -18,18 +16,19 @@ public class CalculateControl extends JPanel {
     private JTextField        count;
     private JButton           process;
 
-    public CalculateControl(HandleImage imageHandler) {
+    public CalculateControl(ImageHandler imageHandler) {
 
         setBorder(BorderFactory.createLineBorder(new Color(0, 0, 0)));
         this.setLayout(new GridLayout(2, 1));
-        count = new JTextField(Messages.getString("CalculateControl.0"));    // $NON-NLS-1$
+        count = new JTextField("Count");
         count.setBounds(100, 30, 350, 40);
-        process = new JButton(Messages.getString("CalculateControl.1"));    // $NON-NLS-1$
+        process = new JButton("Process");
         process.setBounds(10, 30, 80, 40);
 
-        ProcessImageEvent pie = new ProcessImageEvent(imageHandler, count);
+        ProcessImageEvent processImageEvent =
+        new ProcessImageEvent(imageHandler, count);
 
-        process.addMouseListener(pie);
+        process.addMouseListener(processImageEvent);
         add(process);
         add(count);
     }

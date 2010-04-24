@@ -1,6 +1,5 @@
 package image.events;
 
-import gui.events.Messages;
 import image.control.HandleImage;
 import image.control.ImageColorController;
 import image.control.ImageHandler;
@@ -16,7 +15,7 @@ public class ColorController implements ChangeListener {
     private ImageHandler imageHandler;
     private JLabel       jLabel;
 
-    public ColorController(HandleImage handleImage, JLabel jl) {
+    public ColorController(ImageHandler handleImage, JLabel jl) {
 
         // TODO Auto-generated constructor stub
         jLabel = jl;
@@ -27,7 +26,7 @@ public class ColorController implements ChangeListener {
 
         imageColorController = new ImageColorController(imageHandler);
 
-        if (jLabel.getText() == Messages.getString("ColorController.0")) {
+        if (jLabel.getText() == "Red") {
             JSlider jSlider = (JSlider) ce.getSource();
             imageColorController.SetR(jSlider.getValue());
             imageColorController.redraw();
@@ -35,7 +34,7 @@ public class ColorController implements ChangeListener {
             imageHandler.redraw();
         }
 
-        if (jLabel.getText() == Messages.getString("ColorController.1")) {
+        if (jLabel.getText() == "Blue") {
             JSlider jSlider = (JSlider) ce.getSource();
             imageColorController.SetB(jSlider.getValue());
             imageColorController.redraw();
@@ -43,7 +42,7 @@ public class ColorController implements ChangeListener {
             imageHandler.redraw();
         }
 
-        if (jLabel.getText() == Messages.getString("ColorController.2")) {
+        if (jLabel.getText() == "Green") {
             JSlider jSlider = (JSlider) ce.getSource();
             imageColorController.SetG(jSlider.getValue());
             imageColorController.redraw();

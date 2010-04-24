@@ -10,9 +10,9 @@ import java.awt.event.MouseEvent;
 public class ImageTransferEvent extends MouseAdapter {
     private ImageHandler handleImage1,handleImage2;
 
-    public ImageTransferEvent(HandleImage handleImage1, HandleImage handleImage2) {
-        this.handleImage1 = (ImageHandler)handleImage1;
-        this.handleImage2 = (ImageHandler)handleImage2;
+    public ImageTransferEvent(ImageHandler handleImage1, ImageHandler handleImage2) {
+        this.handleImage1 = handleImage1;
+        this.handleImage2 = handleImage2;
     }
 
     @Override

@@ -2,7 +2,6 @@ package image.events;
 
 import image.control.ImageHandler;
 
-import javax.swing.JSlider;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 

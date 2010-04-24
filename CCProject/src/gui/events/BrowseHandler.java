@@ -32,22 +32,14 @@ public class BrowseHandler extends MouseAdapter {
         filePath = filepath;
         imagePanel1 = ip1;
         imagePanel2 = ip2;
-        chooser  = new JFileChooser(
-        new File(Messages.getString("BrowseHandler.0")));    // $NON-NLS-1$
+        chooser  = new JFileChooser(new File("data/Images"));
 
-        chooser.addChoosableFileFilter(new FilterFile(Messages
-        .getString("BrowseHandler.1"), Messages
-        .getString("BrowseHandler.2")));
+        chooser.addChoosableFileFilter(new FilterFile(".jpeg","JPEG ImageFile"));
         chooser.addChoosableFileFilter(
-        new FilterFile(Messages
-        .getString("BrowseHandler.3"),
-        Messages.getString("BrowseHandler.4")));
-        chooser.addChoosableFileFilter(new FilterFile(Messages
-        .getString("BrowseHandler.5"), Messages.getString("BrowseHandler.6")));
-        chooser.addChoosableFileFilter(new FilterFile(Messages
-        .getString("BrowseHandler.7"), Messages.getString("BrowseHandler.8")));
-        chooser.addChoosableFileFilter(new FilterFile(Messages
-        .getString("BrowseHandler.9"), Messages.getString("BrowseHandler.10")));
+        new FilterFile(".jpg", "JPG ImageFile"));
+        chooser.addChoosableFileFilter(new FilterFile("bmp", "BMP ImageFile"));
+        chooser.addChoosableFileFilter(new FilterFile(".png","PNG ImageFile"));
+        chooser.addChoosableFileFilter(new FilterFile(".tiff", "TIFF ImageFile"));
         chooser.setAcceptAllFileFilterUsed(true);
     }
 
@@ -67,12 +59,11 @@ public class BrowseHandler extends MouseAdapter {
         }
 
         if (decision == JFileChooser.ERROR_OPTION) {
-        filePath.setText(Messages
-        .getString("BrowseHandler.11"));
+        filePath.setText("Error Ocuured in choosing the file");
         }
 
         if (decision == JFileChooser.CANCEL_OPTION) {
-        filePath.setText(Messages.getString("BrowseHandler.12"));
+        filePath.setText("Please Select file");
         }
     }
 

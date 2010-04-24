@@ -15,12 +15,12 @@ public class ImageControl extends JPanel {
     private JSlider           imageScale;
     private JSlider           scaleRadius;
 
-    public ImageControl(HandleImage handleImage1,HandleImage handleImage2) {
+    public ImageControl(ImageHandler handleImage1,ImageHandler handleImage2) {
         setBorder(BorderFactory.createLineBorder(new Color(0, 0, 0)));
 
         GridLayout gbl = new GridLayout(2, 2);
 
-        //this.setLayout(gbl);
+        this.setLayout(gbl);
 
 //      imageScale = new JSlider(0, 100);
 //      imageScale.setSize(300, 50);

@@ -2,8 +2,6 @@ package logic.events;
 
 
 import processing.core.PImage;
-
-import gui.events.Messages;
 import image.control.HandleImage;
 import image.control.ImageHandler;
 
@@ -19,7 +17,7 @@ public class ProcessImageEvent extends MouseAdapter {
     private ImageHandler  imageHandler;
     PImage                tempPImage;
 
-    public ProcessImageEvent(final HandleImage handleImage, final JTextField count) {
+    public ProcessImageEvent(final ImageHandler handleImage, final JTextField count) {
         imageHandler = (ImageHandler) handleImage;
         this.count = count;
     }
@@ -32,7 +30,7 @@ public class ProcessImageEvent extends MouseAdapter {
         countColonies         = new CountColonies(tempPImage);
         countColonies.count(tempPImage);
         counter = countColonies.getColonyCount();
-        count.setText(Messages.getString("ProcessImageEvent.1") + counter);
+        count.setText("The number of Colonies are " + counter);
     }
 }
 

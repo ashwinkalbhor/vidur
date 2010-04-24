@@ -6,6 +6,5 @@
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry exported="true" kind="lib" path="core.jar"/>
 	<classpathentry exported="true" kind="lib" path="JTattoo.jar"/>
-	<classpathentry exported="true" kind="lib" path="image_edge.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
